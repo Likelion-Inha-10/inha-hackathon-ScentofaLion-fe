@@ -1,1 +1,0 @@
-# inha-hackathon-ScentofaLion-fe
