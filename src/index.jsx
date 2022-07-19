@@ -1,20 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { createGlobalStyle } from 'styled-components';
-import reset from 'styled-reset';
+import * as ReactDOMClient from 'react-dom/client';
 import Router from 'routes';
 import reportWebVitals from './reportWebVitals';
+import GlobalStyle from 'styles/GlobalStyles';
 
-const GlobalStyles = createGlobalStyle`
-  ${reset}
-`;
-
-ReactDOM.render(
+const root = ReactDOMClient.createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
-    <GlobalStyles />
+    <GlobalStyle />
     <Router />
   </React.StrictMode>,
-  document.getElementById('root'),
 );
 
 reportWebVitals();
