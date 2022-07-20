@@ -4,19 +4,22 @@ import './font.css';
 
 const GlobalStyle = createGlobalStyle`
     ${reset};
-    
+
     body{
+        width: 100vw;
+        height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
         background-color: #FFFAF5;
-        font-family:'-apple-system', 'BlinkMacSystemFont', 
-        'Apple SD Gothic Neo','Inter', 'Spoqa Han Sans', 
-        'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 
-        'Segoe UI Symbol';
+        font-family: 'Noto Sans KR', sans-serif;
         -ms-overflow-style: none; /* IE and Edge */
         scrollbar-width: none; /* Firefox */
     };
+
+    &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export default GlobalStyle;
