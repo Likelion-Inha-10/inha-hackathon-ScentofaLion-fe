@@ -27,7 +27,7 @@ const Underline = styled.hr`
 const Header = () => {
   return (
     <Wrapper>
-      <Title>Scent Test</Title>
+      <Title>Scent MBTI</Title>
       <Underline />
     </Wrapper>
   );
