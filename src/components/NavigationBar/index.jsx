@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
-  MdHome,
-  MdScience,
-  MdPalette,
-  MdSettings,
-  MdEmojiEmotions,
+  MdOutlineHome,
+  MdOutlineBrush,
+  MdOutlineScience,
+  MdOutlinePalette,
+  MdOutlineEmojiEmotions,
 } from 'react-icons/md';
 
 const Wrapper = styled.div`
@@ -52,19 +52,19 @@ const NavigationBar = () => {
     <Wrapper>
       <NavigationBox>
         <NavigationButton type="button" value="home">
-          <MdHome size="28px" />
-        </NavigationButton>
-        <NavigationButton type="button" value="review">
-          <MdScience size="28px" />
+          <MdOutlineHome size="28px" />
         </NavigationButton>
         <NavigationButton type="button" value="test">
-          <MdPalette size="28px" />
+          <MdOutlineBrush size="28px" />
+        </NavigationButton>
+        <NavigationButton type="button" value="palette">
+          <MdOutlinePalette size="28px" />
         </NavigationButton>
         <NavigationButton type="button" value="setting">
-          <MdSettings size="28px" />
+          <MdOutlineScience size="28px" />
         </NavigationButton>
         <NavigationButton type="button" value="myPage">
-          <MdEmojiEmotions size="28px" />
+          <MdOutlineEmojiEmotions size="28px" />
         </NavigationButton>
       </NavigationBox>
     </Wrapper>
