@@ -4,10 +4,11 @@ import './font.css';
 
 const GlobalStyle = createGlobalStyle`
     ${reset};
-
+    :root{
+      width: 100vw;
+      height: 100vh;
+    }
     body{
-        width: 100vw;
-        height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
