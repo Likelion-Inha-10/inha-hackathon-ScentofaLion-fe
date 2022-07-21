@@ -11,6 +11,7 @@ const formFadeIn = keyframes`
 const Wrapper = styled.div`
   width: 100vw;
   height: auto;
+  max-height: 65vh;
   display: ${(props) => (props.visible ? 'flex' : 'none')};
   flex-direction: column;
   align-items: center;
@@ -21,10 +22,19 @@ const Wrapper = styled.div`
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 `;
-
+const ButtonWrapper = styled.div`
+  max-height: 48vh;
+  overflow: scroll;
+  padding-bottom: 3vh;
+  width: inherit;
+  display: inherit;
+  flex-direction: inherit;
+  justify-content: inherit;
+  align-items: inherit;
+`;
 const TestTitle = styled.div`
   width: 80%;
-  padding-top: ${(props) => props.paddingTop || 80}px;
+  padding-top: ${(props) => props.paddingTop || 40}px;
   font-size: 25px;
   font-weight: 900;
   text-align: center;
@@ -263,38 +273,40 @@ const TestForms = (step) => {
           <br /> 아기사자가 된 당신! 🦁
           <br /> 이때 당신의 반응은?
         </TestTitle>
-        <Button
-          shadow
-          clicked
-          isClicked={test1.a}
-          width="85"
-          marginTop="70"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test1A"
-          onClick={buttonClick1}
-        >
-          난 언제나 이런 새 삶을 원했어!
-          <br /> 아기사자가 되어 세상을 헤집어보자!
-        </Button>
-        <Button
-          shadow
-          clicked
-          isClicked={test1.b}
-          width="85"
-          marginTop="30"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test1B"
-          onClick={buttonClick1}
-        >
-          안돼… 이런 익숙지 않은 몸…
-          <br /> 잡아먹힐지도 몰라!
-        </Button>
+        <ButtonWrapper>
+          <Button
+            shadow
+            clicked
+            isClicked={test1.a}
+            width="85"
+            marginTop="70"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test1A"
+            onClick={buttonClick1}
+          >
+            난 언제나 이런 새 삶을 원했어!
+            <br /> 아기사자가 되어 세상을 헤집어보자!
+          </Button>
+          <Button
+            shadow
+            clicked
+            isClicked={test1.b}
+            width="85"
+            marginTop="30"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test1B"
+            onClick={buttonClick1}
+          >
+            안돼… 이런 익숙지 않은 몸…
+            <br /> 잡아먹힐지도 몰라!
+          </Button>
+        </ButtonWrapper>
       </Wrapper>
 
       <Wrapper visible={stepValue === 2}>
@@ -303,53 +315,55 @@ const TestForms = (step) => {
           <br /> 우리집 방구석이 아니다!
           <br /> 여기가 어디지?
         </TestTitle>
-        <Button
-          shadow
-          clicked
-          isClicked={test2.a}
-          width="85"
-          marginTop="50"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test2A"
-          onClick={buttonClick2}
-        >
-          고요한 바람소리만 귓가를 맴돈다.
-        </Button>
-        <Button
-          shadow
-          clicked
-          isClicked={test2.b}
-          width="85"
-          marginTop="15"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test2B"
-          onClick={buttonClick2}
-        >
-          빵빵거리며 지나가는 자동차와
-          <br /> 어디론가 바삐 걸어가는 사람들.
-        </Button>
-        <Button
-          shadow
-          clicked
-          isClicked={test2.c}
-          width="85"
-          marginTop="15"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test2C"
-          onClick={buttonClick2}
-        >
-          저 멀리 동산을 가득 채우는
-          <br /> 알록달록한 과일과 꽃이 보인다.
-        </Button>
+        <ButtonWrapper>
+          <Button
+            shadow
+            clicked
+            isClicked={test2.a}
+            width="85"
+            marginTop="50"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test2A"
+            onClick={buttonClick2}
+          >
+            고요한 바람소리만 귓가를 맴돈다.
+          </Button>
+          <Button
+            shadow
+            clicked
+            isClicked={test2.b}
+            width="85"
+            marginTop="15"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test2B"
+            onClick={buttonClick2}
+          >
+            빵빵거리며 지나가는 자동차와
+            <br /> 어디론가 바삐 걸어가는 사람들.
+          </Button>
+          <Button
+            shadow
+            clicked
+            isClicked={test2.c}
+            width="85"
+            marginTop="15"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test2C"
+            onClick={buttonClick2}
+          >
+            저 멀리 동산을 가득 채우는
+            <br /> 알록달록한 과일과 꽃이 보인다.
+          </Button>
+        </ButtonWrapper>
       </Wrapper>
 
       <Wrapper visible={stepValue === 3}>
@@ -358,38 +372,40 @@ const TestForms = (step) => {
           <br /> 없어! 일단 앞으로
           <br /> 걸어나가려 한다.🔥
         </TestTitle>
-        <Button
-          shadow
-          clicked
-          isClicked={test3.a}
-          width="85"
-          marginTop="70"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test3A"
-          onClick={buttonClick3}
-        >
-          밝은 곳으로 걸어가자.
-          <br /> 누군가 도와줄거야.
-        </Button>
-        <Button
-          shadow
-          clicked
-          isClicked={test3.b}
-          width="85"
-          marginTop="30"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test3B"
-          onClick={buttonClick3}
-        >
-          어두운 곳으로 걸어가야해.
-          <br /> 잡혀갈지도 몰라.
-        </Button>
+        <ButtonWrapper>
+          <Button
+            shadow
+            clicked
+            isClicked={test3.a}
+            width="85"
+            marginTop="70"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test3A"
+            onClick={buttonClick3}
+          >
+            밝은 곳으로 걸어가자.
+            <br /> 누군가 도와줄거야.
+          </Button>
+          <Button
+            shadow
+            clicked
+            isClicked={test3.b}
+            width="85"
+            marginTop="30"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test3B"
+            onClick={buttonClick3}
+          >
+            어두운 곳으로 걸어가야해.
+            <br /> 잡혀갈지도 몰라.
+          </Button>
+        </ButtonWrapper>
       </Wrapper>
 
       <Wrapper visible={stepValue === 4}>
@@ -399,54 +415,56 @@ const TestForms = (step) => {
           <br /> 이 때 누군가가 당신에게
           <br /> 잘 차려진 식사를 대접한다.
         </TestTitle>
-        <Button
-          shadow
-          clicked
-          isClicked={test4.a}
-          width="85"
-          marginTop="50"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test4A"
-          onClick={buttonClick4}
-        >
-          하얀 식탁보 위에 가지런히 놓인 빵과 꿀.
-          <br /> 진한 녹차도 준비되어 있다.
-        </Button>
-        <Button
-          shadow
-          clicked
-          isClicked={test4.b}
-          width="85"
-          marginTop="15"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test4B"
-          onClick={buttonClick4}
-        >
-          알록달록 식탁보 위의 딸기케이크.
-          <br /> 음료는… 프룬주스?
-        </Button>
-        <Button
-          shadow
-          clicked
-          isClicked={test4.c}
-          width="85"
-          marginTop="15"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test4C"
-          onClick={buttonClick4}
-        >
-          아이스박스 위에 얼음으로 가득 찬 바스켓.
-          <br /> 든든한 볶음밥과 시원한 콜라가 놓여있다.
-        </Button>
+        <ButtonWrapper>
+          <Button
+            shadow
+            clicked
+            isClicked={test4.a}
+            width="85"
+            marginTop="50"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test4A"
+            onClick={buttonClick4}
+          >
+            하얀 식탁보 위에 가지런히 놓인 빵과 꿀.
+            <br /> 진한 녹차도 준비되어 있다.
+          </Button>
+          <Button
+            shadow
+            clicked
+            isClicked={test4.b}
+            width="85"
+            marginTop="15"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test4B"
+            onClick={buttonClick4}
+          >
+            알록달록 식탁보 위의 딸기케이크.
+            <br /> 음료는… 프룬주스?
+          </Button>
+          <Button
+            shadow
+            clicked
+            isClicked={test4.c}
+            width="85"
+            marginTop="15"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test4C"
+            onClick={buttonClick4}
+          >
+            아이스박스 위에 얼음으로 가득 찬 바스켓.
+            <br /> 든든한 볶음밥과 시원한 콜라가 놓여있다.
+          </Button>
+        </ButtonWrapper>
       </Wrapper>
 
       <Wrapper visible={stepValue === 5}>
@@ -456,53 +474,55 @@ const TestForms = (step) => {
           <br /> 감사인사를 건넨다. 😀
           <br /> 그런데 이 사람 이상한 모자를 쓰고, 포대자루도 들고 있다.
         </TestTitle>
-        <Button
-          shadow
-          clicked
-          isClicked={test5.a}
-          width="85"
-          marginTop="50"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test5A"
-          onClick={buttonClick5}
-        >
-          삐에로 모자다.
-          <br /> 코를 찌르는 사자우리 냄새가 난다.
-        </Button>
-        <Button
-          shadow
-          clicked
-          isClicked={test5.b}
-          width="85"
-          marginTop="15"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test5B"
-          onClick={buttonClick5}
-        >
-          양봉업자 모자다.
-          <br /> 과한 바닐라향에 속이 더부룩해진다.
-        </Button>
-        <Button
-          shadow
-          clicked
-          isClicked={test5.c}
-          width="85"
-          marginTop="15"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test5C"
-          onClick={buttonClick5}
-        >
-          몰라 그냥 도망간다.
-        </Button>
+        <ButtonWrapper>
+          <Button
+            shadow
+            clicked
+            isClicked={test5.a}
+            width="85"
+            marginTop="50"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test5A"
+            onClick={buttonClick5}
+          >
+            삐에로 모자다.
+            <br /> 코를 찌르는 사자우리 냄새가 난다.
+          </Button>
+          <Button
+            shadow
+            clicked
+            isClicked={test5.b}
+            width="85"
+            marginTop="15"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test5B"
+            onClick={buttonClick5}
+          >
+            양봉업자 모자다.
+            <br /> 과한 바닐라향에 속이 더부룩해진다.
+          </Button>
+          <Button
+            shadow
+            clicked
+            isClicked={test5.c}
+            width="85"
+            marginTop="15"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test5C"
+            onClick={buttonClick5}
+          >
+            몰라 그냥 도망간다.
+          </Button>
+        </ButtonWrapper>
       </Wrapper>
 
       <Wrapper visible={stepValue === 6}>
@@ -511,37 +531,39 @@ const TestForms = (step) => {
           <br /> 풍경이 바뀌어 주변을 둘러보니 온통 하얀색에 일곱개의 문이
           덩그러니 놓여있다. 🚪
         </TestTitle>
-        <Button
-          shadow
-          clicked
-          isClicked={test6.a}
-          width="85"
-          marginTop="70"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test6A"
-          onClick={buttonClick6}
-        >
-          궁금해. 어서 열어봐야겠다.
-        </Button>
-        <Button
-          shadow
-          clicked
-          isClicked={test6.b}
-          width="85"
-          marginTop="30"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test6B"
-          onClick={buttonClick6}
-        >
-          또 무슨 일이 기다리고 있을 지 몰라.
-          <br /> 경계하며 조심스럽게 문을 연다.
-        </Button>
+        <ButtonWrapper>
+          <Button
+            shadow
+            clicked
+            isClicked={test6.a}
+            width="85"
+            marginTop="70"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test6A"
+            onClick={buttonClick6}
+          >
+            궁금해. 어서 열어봐야겠다.
+          </Button>
+          <Button
+            shadow
+            clicked
+            isClicked={test6.b}
+            width="85"
+            marginTop="30"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test6B"
+            onClick={buttonClick6}
+          >
+            또 무슨 일이 기다리고 있을 지 몰라.
+            <br /> 경계하며 조심스럽게 문을 연다.
+          </Button>
+        </ButtonWrapper>
       </Wrapper>
 
       <Wrapper visible={stepValue === 7}>
@@ -549,67 +571,69 @@ const TestForms = (step) => {
           문고리가 굳게 잠겨있다. 🗝️
           <br /> 열쇠는… 내 주머니 안에 있다고?
         </TestTitle>
-        <Button
-          shadow
-          clicked
-          isClicked={test7.a}
-          width="85"
-          marginTop="50"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test7A"
-          onClick={buttonClick7}
-        >
-          설탕으로 만든 열쇠를 꺼낸다.
-        </Button>
-        <Button
-          shadow
-          clicked
-          isClicked={test7.b}
-          width="85"
-          marginTop="15"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test7B"
-          onClick={buttonClick7}
-        >
-          나무로 된 열쇠를 꺼낸다.
-        </Button>
-        <Button
-          shadow
-          clicked
-          isClicked={test7.c}
-          width="85"
-          marginTop="15"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test7C"
-          onClick={buttonClick7}
-        >
-          하얀 보자기에 쌓여있는
-          <br /> 도자기 열쇠를 꺼낸다
-        </Button>
-        <Button
-          shadow
-          clicked
-          isClicked={test7.d}
-          width="85"
-          marginTop="15"
-          paddingTop="30"
-          paddingBottom="30"
-          fontSize="18"
-          fontWeight="800"
-          value="test7D"
-          onClick={buttonClick7}
-        >
-          철문에 어울리는 열쇠를 꺼낸다.
-        </Button>
+        <ButtonWrapper>
+          <Button
+            shadow
+            clicked
+            isClicked={test7.a}
+            width="85"
+            marginTop="50"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test7A"
+            onClick={buttonClick7}
+          >
+            설탕으로 만든 열쇠를 꺼낸다.
+          </Button>
+          <Button
+            shadow
+            clicked
+            isClicked={test7.b}
+            width="85"
+            marginTop="15"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test7B"
+            onClick={buttonClick7}
+          >
+            나무로 된 열쇠를 꺼낸다.
+          </Button>
+          <Button
+            shadow
+            clicked
+            isClicked={test7.c}
+            width="85"
+            marginTop="15"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test7C"
+            onClick={buttonClick7}
+          >
+            하얀 보자기에 쌓여있는
+            <br /> 도자기 열쇠를 꺼낸다
+          </Button>
+          <Button
+            shadow
+            clicked
+            isClicked={test7.d}
+            width="85"
+            marginTop="15"
+            paddingTop="30"
+            paddingBottom="30"
+            fontSize="18"
+            fontWeight="800"
+            value="test7D"
+            onClick={buttonClick7}
+          >
+            철문에 어울리는 열쇠를 꺼낸다.
+          </Button>
+        </ButtonWrapper>
       </Wrapper>
 
       <Wrapper visible={stepValue === 8}>
