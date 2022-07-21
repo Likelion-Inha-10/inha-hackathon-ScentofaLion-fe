@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { MdArrowBack, MdArrowForward } from 'react-icons/md';
 import Header from 'components/Header';
@@ -33,17 +33,27 @@ const BarButton = styled.button`
 `;
 
 const ScentTest = () => {
+  const [step, setStep] = useState(1);
+
+  const nextStep = () => {
+    setStep(step + 1);
+  };
+
+  const beforeStep = () => {
+    setStep(step - 1);
+  };
+
   return (
     <>
       <Header />
-      <TestForms />
+      <TestForms step={step} />
       <Wrapper>
         <BarBox>
-          <BarButton>
+          <BarButton onClick={beforeStep}>
             <MdArrowBack size="28px" />
           </BarButton>
-          <ProgressBar />
-          <BarButton>
+          <ProgressBar width={(step / 7) * 100} />
+          <BarButton onClick={nextStep}>
             <MdArrowForward size="28px" />
           </BarButton>
         </BarBox>

@@ -17,12 +17,13 @@ const Bar = styled.div`
   transition: width 1s;
   border-radius: 3px;
   background-color: black;
+  overflow: hidden;
 `;
 
-const ProgressBar = () => {
+const ProgressBar = (width) => {
   return (
     <BarContainer>
-      <Bar />
+      <Bar width={width.width} />
     </BarContainer>
   );
 };
