@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { MdArrowBack, MdArrowForward } from 'react-icons/md';
 import Header from 'components/Header';
+import TestForms from 'components/TestForms';
 import ProgressBar from 'components/ProgressBar';
 import NavigationBar from 'components/NavigationBar';
 
@@ -35,6 +36,7 @@ const ScentTest = () => {
   return (
     <>
       <Header />
+      <TestForms />
       <Wrapper>
         <BarBox>
           <BarButton>
