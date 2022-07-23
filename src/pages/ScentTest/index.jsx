@@ -45,7 +45,7 @@ const ScentTest = () => {
 
   return (
     <>
-      <Header />
+      <Header title="Per/scent" />
       <TestForms step={step} />
       <Wrapper>
         <BarBox>
