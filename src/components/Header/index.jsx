@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -24,13 +25,17 @@ const Underline = styled.hr`
   margin-top: 15px;
 `;
 
-const Header = () => {
+const Header = (title) => {
   return (
     <Wrapper>
-      <Title>Scent MBTI</Title>
+      <Title>{title.title}</Title>
       <Underline />
     </Wrapper>
   );
+};
+
+Header.title = {
+  title: PropTypes.node.isRequired,
 };
 
 export default Header;
