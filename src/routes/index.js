@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Landing from './../pages/Landing/index';
 import Main from '../pages/Main';
 import ScentTest from 'pages/ScentTest';
 
@@ -7,7 +8,8 @@ import ScentTest from 'pages/ScentTest';
 const Router = () => (
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Main />} />
+      <Route path="/" element={<Landing />} />
+      <Route path="/home" element={<Main />} />
       <Route path="/home/scent-test" element={<ScentTest />} />
     </Routes>
   </BrowserRouter>
