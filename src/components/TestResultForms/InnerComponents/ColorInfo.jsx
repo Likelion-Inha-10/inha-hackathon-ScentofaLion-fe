@@ -15,6 +15,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   box-sizing: content-box;
+  background-color: yellow;
 `;
 
 const ColorMainContainer = styled.div`

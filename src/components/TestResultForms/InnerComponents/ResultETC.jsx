@@ -46,6 +46,34 @@ const SubText = styled.div`
   margin-bottom: 20px;
 `;
 
+const ReviewWrapper = styled.div`
+  width: 90%;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+`;
+
+const ReviewButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+`;
+
+const ShareWrapper = styled.div`
+  width: 90%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+`;
+
 const ResultETC = () => {
   return (
     <>
@@ -68,8 +96,8 @@ const ResultETC = () => {
             marginBottom="10"
             paddingTop="10"
             paddingBottom="10"
-            paddingLeft="50"
-            paddingRight="50"
+            paddingLeft="25"
+            paddingRight="25"
           >
             나만의 추천 제품 구독하러 가기
           </Button>
@@ -81,8 +109,8 @@ const ResultETC = () => {
             marginBottom="10"
             paddingTop="10"
             paddingBottom="10"
-            paddingLeft="50"
-            paddingRight="50"
+            paddingLeft="25"
+            paddingRight="25"
           >
             모든 결과 유형 보기
           </Button>
@@ -93,12 +121,53 @@ const ResultETC = () => {
             fontSize="17"
             paddingTop="10"
             paddingBottom="10"
-            paddingLeft="50"
-            paddingRight="50"
+            paddingLeft="25"
+            paddingRight="25"
           >
             테스트 다시하기
           </Button>
         </InfoCard>
+        <ReviewWrapper>
+          <MainText>이번 테스트 어땠어요?</MainText>
+          <ReviewButtonWrapper>
+            <Button
+              whiteButton
+              shadow
+              width="30"
+              fontSize="17"
+              paddingTop="25"
+              paddingBottom="25"
+            >
+              😢
+              <br /> 별로예요
+            </Button>
+            <Button
+              whiteButton
+              shadow
+              width="30"
+              fontSize="17"
+              paddingTop="25"
+              paddingBottom="25"
+            >
+              😍
+              <br /> 재밌어요
+            </Button>
+            <Button
+              whiteButton
+              shadow
+              width="30"
+              fontSize="17"
+              paddingTop="25"
+              paddingBottom="25"
+            >
+              👍
+              <br /> 정확해요
+            </Button>
+          </ReviewButtonWrapper>
+        </ReviewWrapper>
+        <ShareWrapper>
+          <MainText>친구에게 공유하기</MainText>
+        </ShareWrapper>
       </Wrapper>
     </>
   );
