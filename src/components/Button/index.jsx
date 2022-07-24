@@ -29,6 +29,30 @@ const Button = styled.button`
   }
 
   ${(props) =>
+    props.blackButton &&
+    css`
+      background-color: black;
+      color: white;
+      &:focus {
+        background-color: white;
+        color: black;
+        transition: 0.3s;
+      }
+    `}
+
+  ${(props) =>
+    props.whiteButton &&
+    css`
+      background-color: white;
+      color: black;
+      &:focus {
+        background-color: black;
+        color: white;
+        transition: 0.3s;
+      }
+    `}
+
+  ${(props) =>
     props.shadow &&
     css`
       box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.1);
@@ -40,7 +64,7 @@ const Button = styled.button`
       font-family: 'Frank Ruhl Libre', serif;
     `}
 
-    ${(props) =>
+  ${(props) =>
     props.clicked &&
     css`
       background-color: ${(props) =>
