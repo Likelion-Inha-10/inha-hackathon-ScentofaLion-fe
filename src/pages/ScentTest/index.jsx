@@ -33,14 +33,18 @@ const BarButton = styled.button`
 `;
 
 const ScentTest = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
 
   const nextStep = () => {
-    setStep(step + 1);
+    if (step < 8) {
+      setStep(step + 1);
+    }
   };
 
   const beforeStep = () => {
-    setStep(step - 1);
+    if (step > 0) {
+      setStep(step - 1);
+    }
   };
 
   return (

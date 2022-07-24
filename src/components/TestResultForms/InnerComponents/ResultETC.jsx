@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from 'components/Button';
+import { useNavigate } from 'react-router-dom';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -64,17 +65,12 @@ const ReviewButtonWrapper = styled.div`
   margin-top: 30px;
 `;
 
-const ShareWrapper = styled.div`
-  width: 90%;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-`;
-
 const ResultETC = () => {
+  let navigate = useNavigate();
+  function moveToTestPage() {
+    navigate('/home/scent-test');
+  }
+
   return (
     <>
       <Wrapper>
@@ -123,6 +119,7 @@ const ResultETC = () => {
             paddingBottom="10"
             paddingLeft="25"
             paddingRight="25"
+            onClick={moveToTestPage}
           >
             테스트 다시하기
           </Button>
@@ -165,9 +162,6 @@ const ResultETC = () => {
             </Button>
           </ReviewButtonWrapper>
         </ReviewWrapper>
-        <ShareWrapper>
-          <MainText>친구에게 공유하기</MainText>
-        </ShareWrapper>
       </Wrapper>
     </>
   );
