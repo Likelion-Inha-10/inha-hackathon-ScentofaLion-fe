@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import Button from 'components/Button';
+import { connect } from 'react-redux';
+import { testButtonIncrement } from '../../redux/actions';
 
 const formFadeIn = keyframes`
   100% {
@@ -34,8 +36,8 @@ const TestTitle = styled.div`
   color: black;
 `;
 
-const TestForms = (step) => {
-  const stepValue = step.step;
+const TestForms = (state) => {
+  const stepValue = state.value;
   const [test1, setTest1] = useState({ a: 0, b: 0 });
   const [test2, setTest2] = useState({ a: 0, b: 0, c: 0 });
   const [test3, setTest3] = useState({ a: 0, b: 0 });
@@ -147,7 +149,7 @@ const TestForms = (step) => {
     test7Result();
 
     console.log(colorScore);
-    var resultColor = 'blue';
+    let resultColor = 'blue';
     navigate(`/home/scent-test/result/${resultColor}`);
   };
 
@@ -274,7 +276,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test1A"
-          onClick={buttonClick1}
+          onClick={(e) => {
+            buttonClick1(e);
+            setTimeout(() => {
+              state.onClickTest();
+            }, 500);
+          }}
         >
           난 언제나 이런 새 삶을 원했어!
           <br /> 아기사자가 되어 세상을 헤집어보자!
@@ -290,7 +297,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test1B"
-          onClick={buttonClick1}
+          onClick={(e) => {
+            buttonClick1(e);
+            setTimeout(() => {
+              state.onClickTest();
+            }, 500);
+          }}
         >
           안돼… 이런 익숙지 않은 몸…
           <br /> 잡아먹힐지도 몰라!
@@ -314,7 +326,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test2A"
-          onClick={buttonClick2}
+          onClick={(e) => {
+            buttonClick2(e);
+            setTimeout(() => {
+              state.onClickTest();
+            }, 500);
+          }}
         >
           고요한 바람소리만 귓가를 맴돈다.
         </Button>
@@ -329,7 +346,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test2B"
-          onClick={buttonClick2}
+          onClick={(e) => {
+            buttonClick2(e);
+            setTimeout(() => {
+              state.onClickTest();
+            }, 500);
+          }}
         >
           빵빵거리며 지나가는 자동차와
           <br /> 어디론가 바삐 걸어가는 사람들.
@@ -345,7 +367,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test2C"
-          onClick={buttonClick2}
+          onClick={(e) => {
+            buttonClick2(e);
+            setTimeout(() => {
+              state.onClickTest();
+            }, 500);
+          }}
         >
           저 멀리 동산을 가득 채우는
           <br /> 알록달록한 과일과 꽃이 보인다.
@@ -369,7 +396,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test3A"
-          onClick={buttonClick3}
+          onClick={(e) => {
+            buttonClick3(e);
+            setTimeout(() => {
+              state.onClickTest();
+            }, 500);
+          }}
         >
           밝은 곳으로 걸어가자.
           <br /> 누군가 도와줄거야.
@@ -385,7 +417,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test3B"
-          onClick={buttonClick3}
+          onClick={(e) => {
+            buttonClick3(e);
+            setTimeout(() => {
+              state.onClickTest();
+            }, 500);
+          }}
         >
           어두운 곳으로 걸어가야해.
           <br /> 잡혀갈지도 몰라.
@@ -410,7 +447,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test4A"
-          onClick={buttonClick4}
+          onClick={(e) => {
+            buttonClick4(e);
+            setTimeout(() => {
+              state.onClickTest();
+            }, 500);
+          }}
         >
           하얀 식탁보 위에 가지런히 놓인 빵과 꿀.
           <br /> 진한 녹차도 준비되어 있다.
@@ -426,7 +468,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test4B"
-          onClick={buttonClick4}
+          onClick={(e) => {
+            buttonClick4(e);
+            setTimeout(() => {
+              state.onClickTest();
+            }, 500);
+          }}
         >
           알록달록 식탁보 위의 딸기케이크.
           <br /> 음료는… 프룬주스?
@@ -442,7 +489,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test4C"
-          onClick={buttonClick4}
+          onClick={(e) => {
+            buttonClick4(e);
+            setTimeout(() => {
+              state.onClickTest();
+            }, 500);
+          }}
         >
           아이스박스 위에 얼음으로 가득 찬 바스켓.
           <br /> 든든한 볶음밥과 시원한 콜라가 놓여있다.
@@ -467,7 +519,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test5A"
-          onClick={buttonClick5}
+          onClick={(e) => {
+            buttonClick5(e);
+            setTimeout(() => {
+              state.onClickTest();
+            }, 500);
+          }}
         >
           삐에로 모자다.
           <br /> 코를 찌르는 사자우리 냄새가 난다.
@@ -483,7 +540,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test5B"
-          onClick={buttonClick5}
+          onClick={(e) => {
+            buttonClick5(e);
+            setTimeout(() => {
+              state.onClickTest();
+            }, 500);
+          }}
         >
           양봉업자 모자다.
           <br /> 과한 바닐라향에 속이 더부룩해진다.
@@ -499,7 +561,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test5C"
-          onClick={buttonClick5}
+          onClick={(e) => {
+            buttonClick5(e);
+            setTimeout(() => {
+              state.onClickTest();
+            }, 500);
+          }}
         >
           몰라 그냥 도망간다.
         </Button>
@@ -522,7 +589,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test6A"
-          onClick={buttonClick6}
+          onClick={(e) => {
+            buttonClick6(e);
+            setTimeout(() => {
+              state.onClickTest();
+            }, 500);
+          }}
         >
           궁금해. 어서 열어봐야겠다.
         </Button>
@@ -537,7 +609,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test6B"
-          onClick={buttonClick6}
+          onClick={(e) => {
+            buttonClick6(e);
+            setTimeout(() => {
+              state.onClickTest();
+            }, 500);
+          }}
         >
           또 무슨 일이 기다리고 있을 지 몰라.
           <br /> 경계하며 조심스럽게 문을 연다.
@@ -560,7 +637,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test7A"
-          onClick={buttonClick7}
+          onClick={(e) => {
+            setTimeout(() => {
+              buttonClick7(e);
+              state.onClickTest();
+            }, 500);
+          }}
         >
           설탕으로 만든 열쇠를 꺼낸다.
         </Button>
@@ -575,7 +657,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test7B"
-          onClick={buttonClick7}
+          onClick={(e) => {
+            setTimeout(() => {
+              buttonClick7(e);
+              state.onClickTest();
+            }, 500);
+          }}
         >
           나무로 된 열쇠를 꺼낸다.
         </Button>
@@ -590,7 +677,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test7C"
-          onClick={buttonClick7}
+          onClick={(e) => {
+            setTimeout(() => {
+              buttonClick7(e);
+              state.onClickTest();
+            }, 500);
+          }}
         >
           하얀 보자기에 쌓여있는
           <br /> 도자기 열쇠를 꺼낸다
@@ -606,7 +698,12 @@ const TestForms = (step) => {
           fontSize="18"
           fontWeight="800"
           value="test7D"
-          onClick={buttonClick7}
+          onClick={(e) => {
+            setTimeout(() => {
+              buttonClick7(e);
+              state.onClickTest();
+            }, 500);
+          }}
         >
           철문에 어울리는 열쇠를 꺼낸다.
         </Button>
@@ -615,4 +712,16 @@ const TestForms = (step) => {
   );
 };
 
-export default TestForms;
+const mapStateToProps = (state) => {
+  return {
+    value: state.counter.step,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onClickTest: () => dispatch(testButtonIncrement()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TestForms);
