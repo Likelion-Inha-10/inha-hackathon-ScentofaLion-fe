@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/Header';
 import NavigationBar from 'components/NavigationBar';
@@ -7,7 +7,6 @@ import Button from 'components/Button';
 const Wrapper = styled.div`
   width: 100vw;
   height: 600px;
-  position: fixed;
   padding-bottom: 238px;
   display: flex;
   flex-direction: column;
@@ -62,9 +61,16 @@ const Input = styled.input`
   width: 80%;
   font-size: 15px;
   text-align: left;
+  border: none;
   color: black;
   font-family: 'Frank Ruhl Libre', serif;
   flex-direction: column;
+  ::placeholder {
+    color: black;
+  }
+  :focus {
+    outline: none;
+  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -84,18 +90,18 @@ const Underline = styled.hr`
 const Login = () => {
   return (
     <>
-      <Header title="Mood Pallete" />
+      <Header title="Mood Palette" />
       <Wrapper>
         <Box>
           <Text>Login</Text>
           <InputWrapper>
-            <Input>USER NAME</Input>
+            <Input type="text" placeholder="USERNAME" />
             <Underline />
             <br />
             <br />
             <br />
             <br />
-            <Input>PASSWORD</Input>
+            <Input type="password" placeholder="PASSWORD" />
             <Underline />
           </InputWrapper>
           <ButtonWrapper>
