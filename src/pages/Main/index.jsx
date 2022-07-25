@@ -1,3 +1,12 @@
-const Main = () => <>Main Page 입니다</>;
+import { connect } from 'react-redux';
 
-export default Main;
+const Main = (state) => <>{state.value}</>;
+
+const mapStateToProps = (state) => {
+  console.log(state.counter.step);
+  return {
+    value: state.counter.step,
+  };
+};
+
+export default connect(mapStateToProps)(Main);
