@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import Button from 'components/Button';
 
 const formFadeIn = keyframes`
@@ -109,18 +110,20 @@ const TestForms = (step) => {
   const buttonClick7 = (e) => {
     if (e.target.value === 'test7A') {
       setTest7({ a: 1, b: 0, c: 0, d: 0 });
+      moveToResultPage();
     }
     if (e.target.value === 'test7B') {
       setTest7({ a: 0, b: 1, c: 0, d: 0 });
+      moveToResultPage();
     }
     if (e.target.value === 'test7C') {
       setTest7({ a: 0, b: 0, c: 1, d: 0 });
+      moveToResultPage();
     }
     if (e.target.value === 'test7D') {
       setTest7({ a: 0, b: 0, c: 0, d: 1 });
+      moveToResultPage();
     }
-
-    calculateResult();
   };
 
   let colorScore = {
@@ -133,9 +136,9 @@ const TestForms = (step) => {
     purpleScore: 0,
   };
 
-  const [resultColor, setResultColor] = useState('');
+  let navigate = useNavigate();
 
-  const calculateResult = () => {
+  const moveToResultPage = () => {
     test1Result();
     test2Result();
     test3Result();
@@ -144,7 +147,8 @@ const TestForms = (step) => {
     test7Result();
 
     console.log(colorScore);
-    setResultColor('blue');
+    var resultColor = 'blue';
+    navigate(`/home/scent-test/result/${resultColor}`);
   };
 
   const test1Result = () => {
@@ -237,21 +241,17 @@ const TestForms = (step) => {
     if (test7.a === 1) {
       colorScore.redScore++;
       colorScore.yellowScore++;
-      calculateResult();
     }
     if (test7.b === 1) {
       colorScore.greenScore++;
-      calculateResult();
     }
     if (test7.c === 1) {
       colorScore.blueScore++;
       colorScore.whiteScore++;
-      calculateResult();
     }
     if (test7.d === 1) {
       colorScore.blackScore++;
       colorScore.purpleScore++;
-      calculateResult();
     }
   };
 
@@ -610,10 +610,6 @@ const TestForms = (step) => {
         >
           철문에 어울리는 열쇠를 꺼낸다.
         </Button>
-      </Wrapper>
-
-      <Wrapper visible={stepValue === 8}>
-        <TestTitle paddingTop={150}>{resultColor}</TestTitle>
       </Wrapper>
     </>
   );
