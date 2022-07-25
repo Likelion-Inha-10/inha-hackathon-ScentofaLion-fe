@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from 'components/Button';
 import { useNavigate } from 'react-router-dom';
+import { reset } from '../../../redux/actions';
+import { connect } from 'react-redux';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -65,9 +67,16 @@ const ReviewButtonWrapper = styled.div`
   margin-top: 30px;
 `;
 
-const ResultETC = () => {
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onClickReset: () => dispatch(reset()),
+  };
+};
+
+const ResultETC = (store) => {
   let navigate = useNavigate();
   function moveToTestPage() {
+    store.onClickReset();
     navigate('/home/scent-test');
   }
 
@@ -167,4 +176,4 @@ const ResultETC = () => {
   );
 };
 
-export default ResultETC;
+export default connect(null, mapDispatchToProps)(ResultETC);
