@@ -65,12 +65,12 @@ const SignUp = () => {
   //Password != PasswordCheck ? true : false;
 
   const onClickSubmit = () => {
-    if (password !== passwordCheck) {
-      return Alert('비밀번호가 동일하지 않습니다.');
-    } else if (!nickName || !email || !password || !passwordCheck) {
-      return Alert('모든 항목을 입력해주세요.');
+    if (!nickName || !email || !password || !passwordCheck) {
+      return Alert('모든 항목을 입력해주세요');
+    } else if (password !== passwordCheck) {
+      return Alert('비밀번호가 동일하지 않습니다');
     } else if (isEmail) {
-      return Alert('이메일 형식이 올바르지 않습니다.');
+      return Alert('이메일 형식이 올바르지 않습니다');
     }
   };
 
