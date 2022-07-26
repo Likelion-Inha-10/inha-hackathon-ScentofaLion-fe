@@ -6,6 +6,8 @@ import OtherColor from 'pages/OtherColor';
 import ColorDetail from 'pages/ColorDetail';
 import ScentTest from 'pages/ScentTest';
 import TestResult from 'pages/TestResult';
+import Login from 'pages/Login';
+import SignUp from 'pages/SignUp';
 import ProductDetail from 'pages/ProductDetail';
 import LastWeek from 'pages/LastWeek';
 import LastMain from 'pages/LastMain';
@@ -20,6 +22,8 @@ const Router = () => (
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Main />} />
+        <Route path="/home/log-in" element={<Login />} />
+        <Route path="/home/signup" element={<SignUp />} />
         <Route
           path="/home/other-color/except/:color"
           element={<OtherColor />}
