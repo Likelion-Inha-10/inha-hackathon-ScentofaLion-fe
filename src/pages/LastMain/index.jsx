@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/Header';
+import { motion } from 'framer-motion';
+import { animate } from 'components/Animation/animate';
 import NavigationBar from 'components/NavigationBar';
 import { MdArrowForwardIos } from 'react-icons/md';
-import Purple from '/Users/kimsojung/Downloads/inha-hackathon-ScentofaLion-fe/src/images/LastMain/purple.jpeg';
+import Purple from '../../images/LastMain/purple.jpeg';
 import { useNavigate } from 'react-router-dom';
 
 function LastMain() {
@@ -93,7 +95,11 @@ function LastMain() {
   }
 
   return (
-    <div>
+    <motion.div
+      initial={animate.initial}
+      animate={animate.animate}
+      exit={animate.exit}
+    >
       <Header title="Mood Palette" />
       <WeekText>Last week</WeekText>
       <MiddleWrapper>
@@ -118,7 +124,7 @@ function LastMain() {
       </KeywordBox>
 
       <NavigationBar />
-    </div>
+    </motion.div>
   );
 }
 

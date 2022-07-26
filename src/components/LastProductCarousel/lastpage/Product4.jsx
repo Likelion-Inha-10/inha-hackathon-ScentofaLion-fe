@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/Header';
 import { Link } from 'react-router-dom';
-import MistImg from '/Users/kimsojung/Downloads/inha-hackathon-ScentofaLion-fe/src/images/LastMain/bodymistPurple.jpg';
-import FabricImg from '/Users/kimsojung/Downloads/inha-hackathon-ScentofaLion-fe/src/images/LastMain/fabricpurple.png';
-import PerFumeImg from '/Users/kimsojung/Downloads/inha-hackathon-ScentofaLion-fe/src/images/LastMain/perfumepurple.png';
+import MistImg from '../../../images/LastMain/bodymistPurple.jpg';
+import FabricImg from '../../../images/LastMain/fabricpurple.png';
+import PerFumeImg from '../../../images/LastMain/perfumepurple.png';
 const WhiteBox = styled.div`
   width: 90%;
   height: 600px;

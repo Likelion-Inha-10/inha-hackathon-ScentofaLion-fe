@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { animate } from 'components/Animation/animate';
 import Header from 'components/Header';
 import NavigationBar from 'components/NavigationBar';
 import { MdArrowBackIosNew } from 'react-icons/md';
 import { MdArrowForwardIos } from 'react-icons/md';
-import MainRed from '/Users/kimsojung/Downloads/inha-hackathon-ScentofaLion-fe/src/images/MainPage/mainpage1.jpeg';
+import MainRed from '../../images/MainPage/mainpage1.jpeg';
 import { useNavigate } from 'react-router-dom';
 
 function Main() {
@@ -96,7 +98,11 @@ function Main() {
     navigate('/home/next-main');
   }
   return (
-    <div>
+    <motion.div
+      initial={animate.initial}
+      animate={animate.animate}
+      exit={animate.exit}
+    >
       <Header title="Mood Palette" />
       <WeekText>This week</WeekText>
 
@@ -123,7 +129,7 @@ function Main() {
         <Keyword>#Keyword</Keyword>
       </KeywordBox>
       <NavigationBar />
-    </div>
+    </motion.div>
   );
 }
 

@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/Header';
 import { Link } from 'react-router-dom';
-import WashImg from '/Users/kimsojung/Downloads/inha-hackathon-ScentofaLion-fe/src/images/NextMain/Handwash_Blue.png';
-import DiffuserImg from '/Users/kimsojung/Downloads/inha-hackathon-ScentofaLion-fe/src/images/NextMain/Diffuser_Blue.jpg';
-import CreamImg from '/Users/kimsojung/Downloads/inha-hackathon-ScentofaLion-fe/src/images/NextMain/HandCream_Blue.jpeg';
+import WashImg from '../../../images/NextMain/Handwash_Blue.png';
+import DiffuserImg from '../../../images/NextMain/Diffuser_Blue.jpg';
+import CreamImg from '../../../images/NextMain/HandCream_Blue.jpeg';
 
 const WhiteBox = styled.div`
   width: 90%;
