@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { animate } from 'components/Animation/animate';
 import SimpleSlider from 'components/LandingCarousel';
 import Button from 'components/Button';
 
@@ -22,7 +24,11 @@ const ButtonContainer = styled.div`
 
 const Landing = () => {
   return (
-    <>
+    <motion.div
+      initial={animate.initial}
+      animate={animate.animate}
+      exit={animate.exit}
+    >
       <Wrapper>
         <SimpleSlider />
         <ButtonContainer>
@@ -50,7 +56,7 @@ const Landing = () => {
           </Button>
         </ButtonContainer>
       </Wrapper>
-    </>
+    </motion.div>
   );
 };
 

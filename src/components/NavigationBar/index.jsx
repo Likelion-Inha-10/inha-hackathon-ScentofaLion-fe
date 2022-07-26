@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import {
   MdOutlineHome,
   MdOutlineBrush,
@@ -25,7 +26,7 @@ const NavigationBox = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  background-color: white;
+  background-color: black;
   border-radius: 30px;
   box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.1);
 `;
@@ -48,23 +49,41 @@ const NavigationButton = styled.button`
 `;
 
 const NavigationBar = () => {
+  let navigate = useNavigate();
+
+  const moveToHomePage = () => {
+    navigate('/home');
+  };
+
+  const moveToOtherColorPage = () => {
+    navigate('/home/other-color/except/red');
+  };
+
+  const moveToTestPage = () => {
+    navigate('/home/scent-test');
+  };
+
   return (
     <Wrapper>
       <NavigationBox>
-        <NavigationButton type="button" value="home">
-          <MdOutlineHome size="28px" />
+        <NavigationButton type="button" value="home" onClick={moveToHomePage}>
+          <MdOutlineHome size="28px" color="white" />
         </NavigationButton>
-        <NavigationButton type="button" value="test">
-          <MdOutlineBrush size="28px" />
+        <NavigationButton type="button" value="review">
+          <MdOutlineBrush size="28px" color="white" />
         </NavigationButton>
-        <NavigationButton type="button" value="palette">
-          <MdOutlinePalette size="28px" />
+        <NavigationButton
+          type="button"
+          value="palette"
+          onClick={moveToOtherColorPage}
+        >
+          <MdOutlinePalette size="28px" color="white" />
         </NavigationButton>
-        <NavigationButton type="button" value="setting">
-          <MdOutlineScience size="28px" />
+        <NavigationButton type="button" value="test" onClick={moveToTestPage}>
+          <MdOutlineScience size="28px" color="white" />
         </NavigationButton>
         <NavigationButton type="button" value="myPage">
-          <MdOutlineEmojiEmotions size="28px" />
+          <MdOutlineEmojiEmotions size="28px" color="white" />
         </NavigationButton>
       </NavigationBox>
     </Wrapper>

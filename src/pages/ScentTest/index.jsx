@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { animate } from 'components/Animation/animate';
 import { MdArrowBack, MdArrowForward } from 'react-icons/md';
 import Header from 'components/Header';
 import TestForms from 'components/TestForms';
@@ -48,7 +50,11 @@ const ScentTest = () => {
   };
 
   return (
-    <>
+    <motion.div
+      initial={animate.initial}
+      animate={animate.animate}
+      exit={animate.exit}
+    >
       <Header title="Per/scent" />
       <TestForms step={step} />
       <Wrapper>
@@ -63,7 +69,7 @@ const ScentTest = () => {
         </BarBox>
       </Wrapper>
       <NavigationBar />
-    </>
+    </motion.div>
   );
 };
 

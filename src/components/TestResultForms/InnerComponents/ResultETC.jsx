@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from 'components/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -66,9 +66,15 @@ const ReviewButtonWrapper = styled.div`
 `;
 
 const ResultETC = () => {
+  const { color } = useParams('color');
   let navigate = useNavigate();
+
   function moveToTestPage() {
     navigate('/home/scent-test');
+  }
+
+  function moveToOtherColorPage() {
+    navigate(`/home/other-color/except/${color}`);
   }
 
   return (
@@ -107,8 +113,9 @@ const ResultETC = () => {
             paddingBottom="10"
             paddingLeft="25"
             paddingRight="25"
+            onClick={moveToOtherColorPage}
           >
-            모든 결과 유형 보기
+            다른 결과 유형 보기
           </Button>
           <Button
             blackButton
