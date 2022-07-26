@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { animate } from 'components/Animation/animate';
 import SimpleSlider from 'components/LandingCarousel';
@@ -23,6 +24,16 @@ const ButtonContainer = styled.div`
 `;
 
 const Landing = () => {
+  let navigate = useNavigate();
+
+  const moveToLoginPage = () => {
+    navigate('/home/log-in');
+  };
+
+  const moveToSignUpPage = () => {
+    navigate('/home/sign-up');
+  };
+
   return (
     <motion.div
       initial={animate.initial}
@@ -40,6 +51,7 @@ const Landing = () => {
             paddingBottom="10"
             marginTop="40"
             fontSize="17"
+            onClick={moveToSignUpPage}
           >
             Sign up
           </Button>
@@ -51,6 +63,7 @@ const Landing = () => {
             paddingBottom="10"
             marginTop="40"
             fontSize="17"
+            onClick={moveToLoginPage}
           >
             Login
           </Button>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { animate } from 'components/Animation/animate';
 import Header from 'components/Header';
 import NavigationBar from 'components/NavigationBar';
 import Button from 'components/Button';
@@ -41,6 +43,8 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [passwordCheck, setPasswordCheck] = useState('');
 
+  let navigate = useNavigate();
+
   const onChangeNickName = (e) => {
     setNickName(e.target.value);
   };
@@ -70,12 +74,16 @@ const SignUp = () => {
     } else if (password !== passwordCheck) {
       return Alert('비밀번호가 동일하지 않습니다');
     } else {
-      navigate('/home');
+      navigate('/home/log-in');
     }
   };
 
   return (
-    <>
+    <motion.div
+      initial={animate.initial}
+      animate={animate.animate}
+      exit={animate.exit}
+    >
       <div>
         <Header title="Mood Palette" />
         <Wrapper>
@@ -154,7 +162,7 @@ const SignUp = () => {
         </Wrapper>
         <NavigationBar />
       </div>
-    </>
+    </motion.div>
   );
 };
 

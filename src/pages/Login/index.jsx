@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { animate } from 'components/Animation/animate';
 import Header from 'components/Header';
 import NavigationBar from 'components/NavigationBar';
 import Button from 'components/Button';
@@ -51,6 +53,7 @@ const Text = styled.div`
   word-break: keep-all;
   color: black;
 `;
+
 const InputWrapper = styled.div`
   width: 90%;
   display: flex;
@@ -59,6 +62,7 @@ const InputWrapper = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
 `;
+
 const Input = styled.input`
   width: 80%;
   font-size: 15px;
@@ -110,12 +114,17 @@ const Login = () => {
   };
 
   let navigate = useNavigate();
-  function moveToSignPage() {
-    navigate('/home/signup');
+
+  function moveToSignUpPage() {
+    navigate('/home/sign-up');
   }
 
   return (
-    <>
+    <motion.div
+      initial={animate.initial}
+      animate={animate.animate}
+      exit={animate.exit}
+    >
       <Header title="Mood Palette" />
       <Wrapper>
         <Box>
@@ -151,7 +160,7 @@ const Login = () => {
               marginRight="5"
               fontSize="17"
               backgroundColor="#EDEDED"
-              onClick={moveToSignPage}
+              onClick={moveToSignUpPage}
             >
               Sign up
             </Button>
@@ -180,7 +189,7 @@ const Login = () => {
         </Text>
       </Qwrapper>
       <NavigationBar />
-    </>
+    </motion.div>
   );
 };
 

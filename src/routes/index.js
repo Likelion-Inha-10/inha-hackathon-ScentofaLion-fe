@@ -23,7 +23,7 @@ const Router = () => (
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Main />} />
         <Route path="/home/log-in" element={<Login />} />
-        <Route path="/home/signup" element={<SignUp />} />
+        <Route path="/home/sign-up" element={<SignUp />} />
         <Route
           path="/home/other-color/except/:color"
           element={<OtherColor />}
