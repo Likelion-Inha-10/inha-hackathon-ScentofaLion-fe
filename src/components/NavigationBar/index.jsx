@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { reset } from '../../redux/actions';
+import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
   MdOutlineHome,
@@ -48,7 +50,13 @@ const NavigationButton = styled.button`
   }
 `;
 
-const NavigationBar = () => {
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onClickReset: () => dispatch(reset()),
+  };
+};
+
+const NavigationBar = (store) => {
   let navigate = useNavigate();
 
   const moveToHomePage = () => {
@@ -60,6 +68,8 @@ const NavigationBar = () => {
   };
 
   const moveToTestPage = () => {
+    store.onClickReset();
+    console.log('click');
     navigate('/home/scent-test');
   };
 
@@ -90,4 +100,4 @@ const NavigationBar = () => {
   );
 };
 
-export default NavigationBar;
+export default connect(null, mapDispatchToProps)(NavigationBar);

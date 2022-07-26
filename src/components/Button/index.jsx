@@ -17,6 +17,7 @@ const Button = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   border: none;
   font-family: 'Noto Sans KR', sans-serif;
   word-break: keep-all;

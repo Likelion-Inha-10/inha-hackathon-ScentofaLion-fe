@@ -90,7 +90,6 @@ const SignUp = () => {
           <Button
             marginTop="35"
             marginBottom="15"
-            paddingTop="20"
             width="80"
             height="10"
             shadow="0 0 0 0.2px black"
@@ -105,7 +104,6 @@ const SignUp = () => {
           <Button
             marginTop="10"
             marginBottom="15"
-            paddingTop="20"
             width="80"
             height="10"
             shadow="0 0 0 0.2px black"
@@ -120,7 +118,6 @@ const SignUp = () => {
           <Button
             marginTop="10"
             marginBottom="15"
-            paddingTop="20"
             width="80"
             height="10"
             shadow="0 0 0 0.2px black"
@@ -135,7 +132,6 @@ const SignUp = () => {
           <Button
             marginTop="10"
             marginBottom="15"
-            paddingTop="20"
             width="80"
             height="10"
             shadow="0 0 0 0.2px black"
@@ -150,7 +146,6 @@ const SignUp = () => {
           <Button
             marginTop="50"
             marginBottom="15"
-            paddingTop="15"
             width="80"
             height="10"
             blackButton
