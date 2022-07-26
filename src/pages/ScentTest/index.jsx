@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { animate } from 'components/Animation/animate';
@@ -7,6 +7,8 @@ import Header from 'components/Header';
 import TestForms from 'components/TestForms';
 import ProgressBar from 'components/ProgressBar';
 import NavigationBar from 'components/NavigationBar';
+import { decrement, increment } from '../../redux/actions';
+import { connect } from 'react-redux';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -34,21 +36,19 @@ const BarButton = styled.button`
   border: none;
 `;
 
-const ScentTest = () => {
-  const [step, setStep] = useState(0);
-
-  const nextStep = () => {
-    if (step < 8) {
-      setStep(step + 1);
-    }
+const mapStateToProps = (state) => {
+  return {
+    value: state.counter.step,
   };
-
-  const beforeStep = () => {
-    if (step > 0) {
-      setStep(step - 1);
-    }
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onIncrement: () => dispatch(increment()),
+    onDecrement: () => dispatch(decrement()),
   };
+};
 
+const ScentTest = (state) => {
   return (
     <motion.div
       initial={animate.initial}
@@ -56,14 +56,14 @@ const ScentTest = () => {
       exit={animate.exit}
     >
       <Header title="Per/scent" />
-      <TestForms step={step} />
+      <TestForms step={state.value} />
       <Wrapper>
         <BarBox>
-          <BarButton onClick={beforeStep}>
+          <BarButton onClick={state.onDecrement}>
             <MdArrowBack size="28px" />
           </BarButton>
-          <ProgressBar width={(step / 7) * 100} />
-          <BarButton onClick={nextStep}>
+          <ProgressBar width={(state.value / 7) * 100} />
+          <BarButton onClick={state.onIncrement}>
             <MdArrowForward size="28px" />
           </BarButton>
         </BarBox>
@@ -73,4 +73,4 @@ const ScentTest = () => {
   );
 };
 
-export default ScentTest;
+export default connect(mapStateToProps, mapDispatchToProps)(ScentTest);
