@@ -25,7 +25,7 @@ const NavigationBox = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  background-color: white;
+  background-color: black;
   border-radius: 30px;
   box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.1);
 `;
@@ -52,19 +52,19 @@ const NavigationBar = () => {
     <Wrapper>
       <NavigationBox>
         <NavigationButton type="button" value="home">
-          <MdOutlineHome size="28px" />
+          <MdOutlineHome size="28px" color="white" />
         </NavigationButton>
         <NavigationButton type="button" value="test">
-          <MdOutlineBrush size="28px" />
+          <MdOutlineBrush size="28px" color="white" />
         </NavigationButton>
         <NavigationButton type="button" value="palette">
-          <MdOutlinePalette size="28px" />
+          <MdOutlinePalette size="28px" color="white" />
         </NavigationButton>
         <NavigationButton type="button" value="setting">
-          <MdOutlineScience size="28px" />
+          <MdOutlineScience size="28px" color="white" />
         </NavigationButton>
         <NavigationButton type="button" value="myPage">
-          <MdOutlineEmojiEmotions size="28px" />
+          <MdOutlineEmojiEmotions size="28px" color="white" />
         </NavigationButton>
       </NavigationBox>
     </Wrapper>

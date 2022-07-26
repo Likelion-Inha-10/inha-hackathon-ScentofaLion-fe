@@ -2,19 +2,19 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { animate } from 'components/Animation/animate';
 import HeaderSticky from 'components/HeaderSticky';
-import TestResultForms from 'components/TestResultForms';
+import ColorDetailForms from 'components/ColorDetailForms';
 
-const TestResult = () => {
+const ColorDetail = () => {
   return (
     <motion.div
       initial={animate.initial}
       animate={animate.animate}
       exit={animate.exit}
     >
-      <HeaderSticky title="Per/scent" />
-      <TestResultForms />
+      <HeaderSticky title="Mood Palette" />
+      <ColorDetailForms />
     </motion.div>
   );
 };
 
-export default TestResult;
+export default ColorDetail;
