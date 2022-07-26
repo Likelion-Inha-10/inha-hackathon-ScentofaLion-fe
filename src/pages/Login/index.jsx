@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Header from 'components/Header';
 import NavigationBar from 'components/NavigationBar';
 import Button from 'components/Button';
+import Alert from '../../components/Alert';
+import { useNavigate } from 'react-router-dom';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -88,6 +90,30 @@ const Underline = styled.hr`
 `;
 
 const Login = () => {
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onChangeUserName = (e) => {
+    setUserName(e.target.value);
+  };
+
+  const onChangePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const onClickSubmit = () => {
+    if (!userName || !password) {
+      return Alert('모든 항목을 입력해주세요');
+    } else {
+      navigate('/home');
+    }
+  };
+
+  let navigate = useNavigate();
+  function moveToSignPage() {
+    navigate('/home/signup');
+  }
+
   return (
     <>
       <Header title="Mood Palette" />
@@ -95,13 +121,21 @@ const Login = () => {
         <Box>
           <Text>Login</Text>
           <InputWrapper>
-            <Input type="text" placeholder="USERNAME" />
+            <Input
+              onChange={onChangeUserName}
+              type="text"
+              placeholder="USERNAME"
+            />
             <Underline />
             <br />
             <br />
             <br />
             <br />
-            <Input type="password" placeholder="PASSWORD" />
+            <Input
+              onChange={onChangePassword}
+              type="password"
+              placeholder="PASSWORD"
+            />
             <Underline />
           </InputWrapper>
           <ButtonWrapper>
@@ -117,6 +151,7 @@ const Login = () => {
               marginRight="5"
               fontSize="17"
               backgroundColor="#EDEDED"
+              onClick={moveToSignPage}
             >
               Sign up
             </Button>
@@ -132,6 +167,7 @@ const Login = () => {
               marginRight="5"
               fontSize="17"
               backgroundColor="#EDEDED"
+              onClick={onClickSubmit}
             >
               Login
             </Button>

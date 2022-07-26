@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from 'components/Header';
 import NavigationBar from 'components/NavigationBar';
@@ -61,16 +62,15 @@ const SignUp = () => {
     setPasswordCheck(e.target.value);
   };
 
-  //const hasError = (passwordEntered) =>
-  //Password != PasswordCheck ? true : false;
-
   const onClickSubmit = () => {
     if (!nickName || !email || !password || !passwordCheck) {
       return Alert('모든 항목을 입력해주세요');
-    } else if (password !== passwordCheck) {
-      return Alert('비밀번호가 동일하지 않습니다');
     } else if (isEmail) {
       return Alert('이메일 형식이 올바르지 않습니다');
+    } else if (password !== passwordCheck) {
+      return Alert('비밀번호가 동일하지 않습니다');
+    } else {
+      navigate('/home');
     }
   };
 
@@ -86,6 +86,7 @@ const SignUp = () => {
             width="80"
             height="10"
             shadow="0 0 0 0.2px black"
+            focusBackgroundColor="white"
           >
             <Input
               onChange={onChangeNickName}
@@ -100,6 +101,7 @@ const SignUp = () => {
             width="80"
             height="10"
             shadow="0 0 0 0.2px black"
+            focusBackgroundColor="white"
           >
             <Input
               onChange={onChangeEmail}
@@ -114,6 +116,7 @@ const SignUp = () => {
             width="80"
             height="10"
             shadow="0 0 0 0.2px black"
+            focusBackgroundColor="white"
           >
             <Input
               onChange={onChangePassword}
@@ -128,11 +131,12 @@ const SignUp = () => {
             width="80"
             height="10"
             shadow="0 0 0 0.2px black"
+            focusBackgroundColor="white"
           >
             <Input
               onChange={onChangePasswordCheck}
               type="password"
-              placeholder="비밀번호를 확인"
+              placeholder="비밀번호 확인"
             />
           </Button>
           <Button
