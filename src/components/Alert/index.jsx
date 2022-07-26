@@ -1,4 +1,3 @@
-import React from 'react';
 import toast from 'react-simple-toasts';
 
 export function Alert(messege) {
