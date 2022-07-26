@@ -79,6 +79,7 @@ const ResultETC = (store) => {
 
   function moveToTestPage() {
     store.onClickReset();
+    console.log('click');
     navigate('/home/scent-test');
   }
 
