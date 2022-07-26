@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Header from 'components/Header';
 import NavigationBar from 'components/NavigationBar';
 import Button from 'components/Button';
+import Alert from '../../components/Alert';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -95,7 +96,7 @@ const SignUp = () => {
             shadow="0 0 0 0.2px black"
           >
             <Input
-              onChangeEmail={onChangeEmail}
+              onChange={onChangeEmail}
               type="text"
               placeholder="이메일 주소"
             />
@@ -109,8 +110,8 @@ const SignUp = () => {
             shadow="0 0 0 0.2px black"
           >
             <Input
-              onChangePassword={onChangePassword}
-              type="text"
+              onChange={onChangePassword}
+              type="password"
               placeholder="비밀번호"
             />
           </Button>
@@ -124,7 +125,7 @@ const SignUp = () => {
           >
             <Input
               onChange={onChangePasswordCheck}
-              type="text"
+              type="password"
               placeholder="비밀번호를 확인"
             />
           </Button>

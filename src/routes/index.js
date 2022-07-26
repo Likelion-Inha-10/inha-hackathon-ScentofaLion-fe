@@ -5,7 +5,6 @@ import ScentTest from 'pages/ScentTest';
 import TestResult from 'pages/TestResult';
 import Login from 'pages/Login';
 import SignUp from 'pages/SignUp';
-import Login from 'pages/Login';
 
 // 라우트명은 kebab-case 로 작성합니다
 
