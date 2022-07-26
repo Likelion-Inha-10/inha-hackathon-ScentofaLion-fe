@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/Header';
 import { Link } from 'react-router-dom';
-import CandleImg from '/Users/kimsojung/Downloads/inha-hackathon-ScentofaLion-fe/src/images/NextMain/Candle_Blue.png';
-import RoomImg from '/Users/kimsojung/Downloads/inha-hackathon-ScentofaLion-fe/src/images/NextMain/Room_Blue.jpg';
-import ShampooImg from '/Users/kimsojung/Downloads/inha-hackathon-ScentofaLion-fe/src/images/NextMain/shampoo_Blue.jpg';
+import CandleImg from '../../../images/NextMain/Candle_Blue.png';
+import RoomImg from '../../../images/NextMain/Room_Blue.jpg';
+import ShampooImg from '../../../images/NextMain/shampoo_Blue.jpg';
 
 const WhiteBox = styled.div`
   width: 90%;

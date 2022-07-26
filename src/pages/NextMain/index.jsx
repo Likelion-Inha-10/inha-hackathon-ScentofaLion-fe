@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { animate } from 'components/Animation/animate';
 import Header from 'components/Header';
 import { useNavigate } from 'react-router-dom';
 import NavigationBar from 'components/NavigationBar';
 import { MdArrowBackIosNew } from 'react-icons/md';
 
-import Blue from '/Users/kimsojung/Downloads/inha-hackathon-ScentofaLion-fe/src/images/NextMain/blue.jpeg';
+import Blue from '../../images/NextMain/blue.jpeg';
 
 function NextMain() {
   const WeekText = styled.div`
@@ -94,7 +96,11 @@ function NextMain() {
   }
 
   return (
-    <div>
+    <motion.div
+      initial={animate.initial}
+      animate={animate.animate}
+      exit={animate.exit}
+    >
       <Header title="Mood Palette" />
       <WeekText>Next week</WeekText>
 
@@ -120,7 +126,7 @@ function NextMain() {
       </KeywordBox>
 
       <NavigationBar />
-    </div>
+    </motion.div>
   );
 }
 
