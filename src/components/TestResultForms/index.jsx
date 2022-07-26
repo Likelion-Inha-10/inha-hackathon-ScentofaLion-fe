@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
 import Button from 'components/Button';
@@ -49,6 +50,12 @@ const MainText = styled.div`
 `;
 
 const TestResultForms = () => {
+  let navigate = useNavigate();
+
+  const moveToHomePage = () => {
+    navigate('/home');
+  };
+
   const onDownloadBtn = () => {
     domtoimage
       .toBlob(document.getElementById('card'), {
@@ -58,6 +65,7 @@ const TestResultForms = () => {
         saveAs(blob, 'result.jpeg');
       });
   };
+
   return (
     <>
       <PrintWrapper id="card">
@@ -98,6 +106,7 @@ const TestResultForms = () => {
             paddingLeft="25"
             paddingRight="25"
             className="downBtn"
+            onClick={moveToHomePage}
           >
             홈으로 이동
           </Button>
