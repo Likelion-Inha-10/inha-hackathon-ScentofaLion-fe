@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Header from 'components/Header';
 import NavigationBar from 'components/NavigationBar';
@@ -36,6 +36,7 @@ const Next = styled.div`
 const SignUp = () => {
   const [nickName, setNickName] = useState('');
   const [email, setEmail] = useState('');
+  const [isEmail, setIsEmail] = useState(false);
   const [password, setPassword] = useState('');
   const [passwordCheck, setPasswordCheck] = useState('');
 
@@ -44,6 +45,11 @@ const SignUp = () => {
   };
 
   const onChangeEmail = (e) => {
+    const emailRegex =
+      //eslint-disable-next-line
+      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+    if (!e.target.value || emailRegex.test(e.target.value)) setIsEmail(false);
+    else setIsEmail(true);
     setEmail(e.target.value);
   };
 
@@ -63,7 +69,7 @@ const SignUp = () => {
       return Alert('비밀번호가 동일하지 않습니다');
     } else if (!nickName || !email || !password || !passwordCheck) {
       return Alert('모든 항목을 입력해주세요');
-    } else if (email == !'@' || !'.') {
+    } else if (isEmail) {
       return Alert('이메일 형식이 올바르지 않습니다');
     }
   };
