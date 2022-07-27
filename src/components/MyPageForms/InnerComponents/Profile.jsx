@@ -19,6 +19,14 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
+const ProfileColorUnknown = styled.div`
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: linear-gradient(to top, #828282 0%, rgba(0, 0, 0, 0) 100%);
+  box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.1);
+`;
+
 const ProfileColorRed = styled.div`
   width: 110px;
   height: 110px;
@@ -91,7 +99,7 @@ const ProfileTitle = styled.div`
 `;
 
 const ColorText = styled.div`
-  font-size: 45px;
+  font-size: 40px;
   font-weight: 900;
   font-family: 'Frank Ruhl Libre', serif;
   color: ${(props) => props.color || 'black'};
@@ -103,6 +111,16 @@ const Profile = () => {
 
   return (
     <>
+      <Wrapper visible={color === 'none'}>
+        <Container>
+          <ProfileColorUnknown />
+          <TextWrapper>
+            <ProfileTitle>Moody님의 향기</ProfileTitle>
+            <ColorText color={'black'}>UNKNOWN</ColorText>
+          </TextWrapper>
+        </Container>
+      </Wrapper>
+
       <Wrapper visible={color === 'red'}>
         <Container>
           <ProfileColorRed />
