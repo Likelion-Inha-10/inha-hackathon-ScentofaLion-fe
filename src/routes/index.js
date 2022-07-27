@@ -15,6 +15,7 @@ import LastMain from 'pages/LastMain';
 import NextWeek from 'pages/NextWeek';
 import NextMain from 'pages/NextMain';
 import LoginWarning from '../pages/LoginWarning';
+import MyPage from './../pages/MyPage/index';
 
 // 라우트명은 kebab-case 로 작성합니다
 
@@ -40,6 +41,7 @@ const Router = () => (
         <Route path="/home/next-main" element={<NextMain />} />
         <Route path="/home/product-detail" element={<ProductDetail />} />
         <Route path="/home/login-warning" element={<LoginWarning />} />
+        <Route path="/home/my-page/:color/:subscribe" element={<MyPage />} />
       </Routes>
     </AnimatePresence>
   </BrowserRouter>
