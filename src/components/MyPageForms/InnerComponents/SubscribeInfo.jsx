@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   box-sizing: content-box;
-  margin-top: 30px;
+  margin-top: 40px;
 `;
 
 const ContainerTitle = styled.div`

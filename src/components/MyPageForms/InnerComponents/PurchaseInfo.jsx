@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   box-sizing: content-box;
-  margin-top: 30px;
+  margin-top: 40px;
 `;
 
 const Container = styled.div`
@@ -98,8 +98,8 @@ const PurchaseInfo = () => {
             backgroundColor="white"
             focusBackgroundColor="white"
             width="85"
-            paddingTop="20"
-            paddingBottom="20"
+            paddingTop="15"
+            paddingBottom="15"
             fontSize="17"
           >
             <ButtonInnerWrapper>
