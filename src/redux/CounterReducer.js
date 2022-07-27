@@ -12,7 +12,7 @@ const counter = (state = initialState, action) => {
         return { ...state, step: state.step + 1 };
       } else return state;
     case DECREMENT:
-      if (state.step > 0) {
+      if (state.step >= 0) {
         return { ...state, step: state.step - 1 };
       } else return state;
     case TEST:
@@ -24,7 +24,7 @@ const counter = (state = initialState, action) => {
       } else return state;
     case RESET:
       return {
-        step: 1,
+        step: 0,
       };
     default:
       return state;

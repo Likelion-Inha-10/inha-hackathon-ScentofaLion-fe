@@ -19,6 +19,7 @@ export const testButtonIncrement = () => {
     type: TEST,
   };
 };
+
 export const reset = () => {
   return {
     type: RESET,

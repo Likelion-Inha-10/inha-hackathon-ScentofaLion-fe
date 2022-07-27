@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import NotMobile from 'pages/NotMobile';
 import Landing from './../pages/Landing/index';
 import Main from '../pages/Main';
 import OtherColor from 'pages/OtherColor';
@@ -19,6 +20,7 @@ import LoginWarning from '../pages/LoginWarning';
 
 const Router = () => (
   <BrowserRouter>
+    <NotMobile />
     <AnimatePresence>
       <Routes>
         <Route path="/" element={<Landing />} />

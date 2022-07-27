@@ -13,7 +13,7 @@ const formFadeIn = keyframes`
 
 const Wrapper = styled.div`
   width: 100vw;
-  height: auto;
+  height: 80vh;
   display: ${(props) => (props.visible ? 'flex' : 'none')};
   flex-direction: column;
   align-items: center;
@@ -25,9 +25,30 @@ const Wrapper = styled.div`
   animation-fill-mode: forwards;
 `;
 
+const MainTitle = styled.div`
+  width: 80%;
+  padding-top: 15vh;
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 35px;
+  font-weight: 900;
+  text-align: center;
+  color: black;
+`;
+
+const SubTitle = styled.div`
+  width: 80%;
+  padding-top: 5vh;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  color: black;
+`;
+
 const TestTitle = styled.div`
   width: 80%;
   padding-top: ${(props) => props.paddingTop || 80}px;
+  padding-top: 5vh;
   font-size: 25px;
   font-weight: 900;
   text-align: center;
@@ -259,6 +280,29 @@ const TestForms = (state) => {
 
   return (
     <>
+      <Wrapper visible={stepValue === 0}>
+        <MainTitle>Per/scent</MainTitle>
+        <SubTitle>
+          나만의 컬러 <br /> 나만의 향을 <br /> Per/scent로 알아봐요
+        </SubTitle>
+        <Button
+          shadow
+          blackButton
+          width="85"
+          height="12"
+          marginTop="120"
+          fontSize="18"
+          fontWeight="400"
+          onClick={() => {
+            setTimeout(() => {
+              state.onClickTest();
+            }, 500);
+          }}
+        >
+          테스트 시작하기
+        </Button>
+      </Wrapper>
+
       <Wrapper visible={stepValue === 1}>
         <TestTitle>
           어느날 눈을 떠보니
@@ -270,9 +314,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test1.a}
           width="85"
+          height="12"
           marginTop="70"
-          paddingTop="30"
-          paddingBottom="30"
           fontSize="18"
           fontWeight="800"
           value="test1A"
@@ -291,9 +334,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test1.b}
           width="85"
-          marginTop="30"
-          paddingTop="30"
-          paddingBottom="30"
+          height="12"
+          marginTop="20"
           fontSize="18"
           fontWeight="800"
           value="test1B"
@@ -320,9 +362,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test2.a}
           width="85"
+          height="12"
           marginTop="50"
-          paddingTop="30"
-          paddingBottom="30"
           fontSize="18"
           fontWeight="800"
           value="test2A"
@@ -340,9 +381,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test2.b}
           width="85"
-          marginTop="15"
-          paddingTop="30"
-          paddingBottom="30"
+          height="12"
+          marginTop="20"
           fontSize="18"
           fontWeight="800"
           value="test2B"
@@ -361,9 +401,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test2.c}
           width="85"
-          marginTop="15"
-          paddingTop="30"
-          paddingBottom="30"
+          height="12"
+          marginTop="20"
           fontSize="18"
           fontWeight="800"
           value="test2C"
@@ -390,9 +429,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test3.a}
           width="85"
+          height="12"
           marginTop="70"
-          paddingTop="30"
-          paddingBottom="30"
           fontSize="18"
           fontWeight="800"
           value="test3A"
@@ -411,9 +449,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test3.b}
           width="85"
-          marginTop="30"
-          paddingTop="30"
-          paddingBottom="30"
+          height="12"
+          marginTop="20"
           fontSize="18"
           fontWeight="800"
           value="test3B"
@@ -441,9 +478,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test4.a}
           width="85"
+          height="12"
           marginTop="50"
-          paddingTop="30"
-          paddingBottom="30"
           fontSize="18"
           fontWeight="800"
           value="test4A"
@@ -462,9 +498,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test4.b}
           width="85"
-          marginTop="15"
-          paddingTop="30"
-          paddingBottom="30"
+          height="12"
+          marginTop="20"
           fontSize="18"
           fontWeight="800"
           value="test4B"
@@ -483,9 +518,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test4.c}
           width="85"
-          marginTop="15"
-          paddingTop="30"
-          paddingBottom="30"
+          height="12"
+          marginTop="20"
           fontSize="18"
           fontWeight="800"
           value="test4C"
@@ -513,9 +547,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test5.a}
           width="85"
+          height="12"
           marginTop="50"
-          paddingTop="30"
-          paddingBottom="30"
           fontSize="18"
           fontWeight="800"
           value="test5A"
@@ -534,9 +567,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test5.b}
           width="85"
-          marginTop="15"
-          paddingTop="30"
-          paddingBottom="30"
+          height="12"
+          marginTop="20"
           fontSize="18"
           fontWeight="800"
           value="test5B"
@@ -555,9 +587,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test5.c}
           width="85"
-          marginTop="15"
-          paddingTop="30"
-          paddingBottom="30"
+          height="12"
+          marginTop="20"
           fontSize="18"
           fontWeight="800"
           value="test5C"
@@ -583,9 +614,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test6.a}
           width="85"
+          height="12"
           marginTop="70"
-          paddingTop="30"
-          paddingBottom="30"
           fontSize="18"
           fontWeight="800"
           value="test6A"
@@ -603,9 +633,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test6.b}
           width="85"
-          marginTop="30"
-          paddingTop="30"
-          paddingBottom="30"
+          height="12"
+          marginTop="20"
           fontSize="18"
           fontWeight="800"
           value="test6B"
@@ -631,9 +660,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test7.a}
           width="85"
+          height="12"
           marginTop="50"
-          paddingTop="30"
-          paddingBottom="30"
           fontSize="18"
           fontWeight="800"
           value="test7A"
@@ -651,9 +679,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test7.b}
           width="85"
-          marginTop="15"
-          paddingTop="30"
-          paddingBottom="30"
+          height="12"
+          marginTop="20"
           fontSize="18"
           fontWeight="800"
           value="test7B"
@@ -671,9 +698,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test7.c}
           width="85"
-          marginTop="15"
-          paddingTop="30"
-          paddingBottom="30"
+          height="12"
+          marginTop="20"
           fontSize="18"
           fontWeight="800"
           value="test7C"
@@ -692,9 +718,8 @@ const TestForms = (state) => {
           clicked
           isClicked={test7.d}
           width="85"
-          marginTop="15"
-          paddingTop="30"
-          paddingBottom="30"
+          height="12"
+          marginTop="20"
           fontSize="18"
           fontWeight="800"
           value="test7D"
