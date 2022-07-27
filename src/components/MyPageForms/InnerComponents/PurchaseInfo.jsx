@@ -56,7 +56,7 @@ const StyledHr = styled.hr`
 `;
 
 const InfoWrapper = styled.div`
-  width: 95%;
+  width: 90%;
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -89,7 +89,7 @@ const SubscribeInfo = () => {
       <Wrapper visible={subscribe === 'none'}>
         <ContainerTitle>구독 상세 정보</ContainerTitle>
         <Container>
-          <SubscribeDate>아직 구독하시지 않았네요.</SubscribeDate>
+          <SubscribeDate>아직 구독을 하지 않았어요.</SubscribeDate>
           <Button
             backgroundColor="white"
             focusBackgroundColor="white"
