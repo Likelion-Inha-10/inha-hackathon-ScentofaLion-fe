@@ -315,6 +315,6 @@ function Main() {
       <NavigationBar />
     </motion.div>
   );
-}
+};
 
 export default Main;
