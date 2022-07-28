@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import Button from 'components/Button';
+import Header from 'components/Header';
+import NavigationBar from 'components/NavigationBar';
 
 const BottomWrapper = styled.div`
   display: flex;
@@ -41,7 +43,6 @@ const NextWrapper = styled.div`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
 `;
 
 const TextBox = styled.div`
@@ -52,6 +53,7 @@ const TextBox = styled.div`
   justify-content: center;
   margin-left: ${(props) => props.marginLeft || 0}px;
   margin-right: ${(props) => props.marginRight || 0}px;
+  margin-top: 25px;
 `;
 
 const Explain = styled.div`
@@ -73,7 +75,7 @@ const ColorWrapper = styled.div`
   margin-left: 7.5%;
   margin-bottom: 20%;
 `;
-const ProductStandard = () => {
+const SampleChange = () => {
   let navigate = useNavigate();
 
   const moveToBack = () => {
@@ -85,8 +87,9 @@ const ProductStandard = () => {
   return (
     <div>
       <Wrapper>
-        <TextBox>Standard</TextBox>
-        <TextBox>Select Products</TextBox>
+        <Header title="Edit" />
+
+        <TextBox>Sample Change</TextBox>
         <Explain>구독할 제품을 2개 선택해주세요</Explain>
       </Wrapper>
 
@@ -213,8 +216,9 @@ const ProductStandard = () => {
           <AiOutlineArrowRight />
         </NextWrapper>
       </BottomWrapper>
+      <NavigationBar></NavigationBar>
     </div>
   );
 };
 
-export default ProductStandard;
+export default SampleChange;

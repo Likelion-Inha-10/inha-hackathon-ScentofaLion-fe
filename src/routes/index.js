@@ -24,6 +24,7 @@ import SelectColorStandard from 'pages/SelectColorStandard';
 import SelectProductStandard from 'pages/SelectProductStandard';
 import SelectProductPremium from 'pages/SelectProductPremium';
 import SelectColor from 'pages/SelectColor';
+import ReviewLoading from '../pages/ReviewLoading';
 
 // 라우트명은 kebab-case 로 작성합니다
 

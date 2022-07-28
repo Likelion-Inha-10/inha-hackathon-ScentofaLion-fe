@@ -90,12 +90,12 @@ const BackWrapper = styled.div`
 const ReviewLoading = () => {
   let navigate = useNavigate();
 
-  function moveToReviewPage() {
+  const moveToReviewPage = () => {
     navigate('/home/review');
-  }
-  function moveToSampleChange() {
-    navigate('/home/edit');
-  }
+  };
+  const moveToSampleChangePage = () => {
+    navigate('/home/sample-change');
+  };
 
   return (
     <motion.div
@@ -124,19 +124,22 @@ const ReviewLoading = () => {
           height="35"
           focusBackgroundColor="black"
           radius="40"
+          onClick={moveToReviewPage}
         >
           <EBoxText>Review</EBoxText>
           <BoxText>이번주 받아보신 제품은 어떠셨나요?</BoxText>
-          <BoxText fontWeight="900" onClick={moveToReviewPage}>
-            리뷰 작성하러 가기
-          </BoxText>
+          <BoxText fontWeight="900">리뷰 작성하러 가기</BoxText>
         </Button>
-        <Button backgroundColor="black" width="80" height="35" radius="40">
+        <Button
+          blackButton
+          width="80"
+          height="35"
+          radius="40"
+          onclick={moveToSampleChangePage}
+        >
           <EBoxText>New</EBoxText>
           <BoxText>다음주, 다른 카테고리의 제품을 받아보고 싶으신가요?</BoxText>
-          <BoxText fontWeight="900" onclick={moveToSampleChange}>
-            샘플 변경하러 가기
-          </BoxText>
+          <BoxText fontWeight="900">샘플 변경하러 가기</BoxText>
         </Button>
       </BoxWrapper>
 
