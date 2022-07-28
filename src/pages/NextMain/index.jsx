@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { animate } from 'components/Animation/animate';
@@ -86,6 +87,7 @@ const MiddleWrapper = styled.div`
 `;
 function NextMain() {
   const { userid } = useParams();
+  const [userColor, setUserColor] = useState();
   let navigate = useNavigate();
 
   function moveToNextDetailPage() {
@@ -94,6 +96,18 @@ function NextMain() {
   function moveToThisWeekPage() {
     navigate(`/home/${userid}`);
   }
+
+  useEffect(() => {
+    axios
+      .get(`http://172.104.110.207:8000/account/${userid}/`)
+      .then((response) => {
+        console.log(response);
+        setUserColor(response.data.user_color);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <motion.div
@@ -125,7 +139,7 @@ function NextMain() {
         <Keyword>#Sky</Keyword>
       </KeywordBox>
 
-      <NavigationBar />
+      <NavigationBar userid={userid} color={userColor} />
     </motion.div>
   );
 }

@@ -16,13 +16,13 @@ import NextWeek from 'pages/NextWeek';
 import NextMain from 'pages/NextMain';
 import LoginWarning from '../pages/LoginWarning';
 import MyPage from './../pages/MyPage/index';
-//import Subscribe from 'pages/Subscribe';
-//import SubscribeDone from '../pages/SubscribeDone/index';
-//import SelectColorBasic from 'pages/SelectColorBasic';
-//import SelectColorPremium from 'pages/SelectColorPremium';
-//import SelectColorStandard from 'pages/SelectColorStandard';
-//import SelectProductStandard from 'pages/SelectProductStandard';
-//import SelectProductPremium from 'pages/SelectProductPremium';
+import Subscribe from 'pages/Subscribe';
+import SubscribeDone from '../pages/SubscribeDone/index';
+import SelectColorBasic from 'pages/SelectColorBasic';
+import SelectColorPremium from 'pages/SelectColorPremium';
+import SelectColorStandard from 'pages/SelectColorStandard';
+import SelectProductStandard from 'pages/SelectProductStandard';
+import SelectProductPremium from 'pages/SelectProductPremium';
 //import SelectColor from 'pages/SelectColor';
 import ReviewLoading from '../pages/ReviewLoading';
 import Review from '../pages/Review';
@@ -38,10 +38,13 @@ const Router = () => (
         <Route path="/home/log-in" element={<Login />} />
         <Route path="/home/sign-up" element={<SignUp />} />
         <Route
-          path="/home/other-color/except/:color"
+          path="/home/:userid/other-color/except/:color"
           element={<OtherColor />}
         />
-        <Route path="/home/color-detail/:color" element={<ColorDetail />} />
+        <Route
+          path="/home/:userid/color-detail/:color"
+          element={<ColorDetail />}
+        />
         <Route path="/home/:userid/scent-test" element={<ScentTest />} />
         <Route
           path="/home/:userid/scent-test/result/:color"

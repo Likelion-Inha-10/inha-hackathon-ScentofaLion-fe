@@ -1,4 +1,5 @@
-// import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { animate } from 'components/Animation/animate';
@@ -9,6 +10,7 @@ import ProgressBar from 'components/ProgressBar';
 import NavigationBar from 'components/NavigationBar';
 import { decrement, increment } from '../../redux/actions';
 import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -50,6 +52,21 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const ScentTest = (state) => {
+  const { userid } = useParams();
+  const [userColor, setUserColor] = useState();
+
+  useEffect(() => {
+    axios
+      .get(`http://172.104.110.207:8000/account/${userid}/`)
+      .then((response) => {
+        console.log(response);
+        setUserColor(response.data.user_color);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <motion.div
       initial={animate.initial}
@@ -69,7 +86,7 @@ const ScentTest = (state) => {
           </BarButton>
         </BarBox>
       </Wrapper>
-      <NavigationBar />
+      <NavigationBar userid={userid} color={userColor} />
     </motion.div>
   );
 };
