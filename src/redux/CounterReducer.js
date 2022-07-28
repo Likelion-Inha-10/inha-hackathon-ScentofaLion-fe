@@ -8,11 +8,11 @@ const initialState = {
 const counter = (state = initialState, action) => {
   switch (action.type) {
     case INCREMENT:
-      if (state.step < 8) {
+      if (state.step < 7) {
         return { ...state, step: state.step + 1 };
       } else return state;
     case DECREMENT:
-      if (state.step >= 0) {
+      if (state.step > 0) {
         return { ...state, step: state.step - 1 };
       } else return state;
     case TEST:

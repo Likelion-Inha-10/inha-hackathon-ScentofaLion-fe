@@ -41,6 +41,7 @@ const mapStateToProps = (state) => {
     value: state.counter.step,
   };
 };
+
 const mapDispatchToProps = (dispatch) => {
   return {
     onIncrement: () => dispatch(increment()),

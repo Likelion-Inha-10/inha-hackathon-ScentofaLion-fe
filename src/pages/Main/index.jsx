@@ -7,6 +7,7 @@ import Header from 'components/Header';
 import NavigationBar from 'components/NavigationBar';
 import { MdArrowBackIosNew } from 'react-icons/md';
 import { MdArrowForwardIos } from 'react-icons/md';
+import Alert from 'components/Alert';
 import red from '../../images/ColorTheme//red.jpg';
 import yellow from '../../images/ColorTheme//yellow.jpg';
 import green from '../../images/ColorTheme//green.jpg';
@@ -109,6 +110,7 @@ function Main() {
   let navigate = useNavigate();
   const { userid } = useParams();
   const [userColor, setUserColor] = useState();
+  const [isSubscibe, setIsSubscribe] = useState();
 
   useEffect(() => {
     console.log(userid);
@@ -117,6 +119,7 @@ function Main() {
       .then((response) => {
         console.log(response);
         setUserColor(response.data.user_color);
+        setIsSubscribe(response.data.sub_date);
       })
       .catch((error) => {
         console.log(error);
@@ -124,15 +127,19 @@ function Main() {
   }, []);
 
   function moveToDetailPage() {
-    navigate('/home/product-detail');
+    if (isSubscibe === null) {
+      return Alert('아직 구독을 하지 않으셨어요.');
+    } else {
+      navigate('/home/product-detail');
+    }
   }
 
   function moveToLastWeekPage() {
-    navigate('/home/last-main');
+    navigate(`/home/${userid}/last-main`);
   }
 
   function moveToNextWeekPage() {
-    navigate('/home/next-main');
+    navigate(`/home/${userid}/next-main`);
   }
 
   return (
@@ -308,6 +315,6 @@ function Main() {
       <NavigationBar />
     </motion.div>
   );
-};
+}
 
 export default Main;

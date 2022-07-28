@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Button from 'components/Button';
 import { connect } from 'react-redux';
 import { testButtonIncrement } from '../../redux/actions';
@@ -58,6 +58,7 @@ const TestTitle = styled.div`
 `;
 
 const TestForms = (state) => {
+  const { userid } = useParams();
   const stepValue = state.value;
   const [test1, setTest1] = useState({ a: 0, b: 0 });
   const [test2, setTest2] = useState({ a: 0, b: 0, c: 0 });
@@ -180,7 +181,7 @@ const TestForms = (state) => {
       'purple',
     ];
     let resultColor = colorArray[Math.floor(Math.random() * (7 - 0)) + 0];
-    navigate(`/home/scent-test/result/${resultColor}`);
+    navigate(`/home/${userid}/scent-test/result/${resultColor}`);
   };
 
   const test1Result = () => {

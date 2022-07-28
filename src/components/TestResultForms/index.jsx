@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
 import Button from 'components/Button';
@@ -51,9 +51,14 @@ const MainText = styled.div`
 
 const TestResultForms = () => {
   let navigate = useNavigate();
+  const { userid } = useParams();
 
   const moveToHomePage = () => {
-    navigate('/home');
+    if (userid === 0) {
+      navigate('/');
+    } else {
+      navigate(`/home/${userid}`);
+    }
   };
 
   const onDownloadBtn = () => {

@@ -74,13 +74,14 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const ResultETC = (store) => {
-  const { color } = useParams('color');
+  const { userid } = useParams();
+  const { color } = useParams();
   let navigate = useNavigate();
 
   function moveToTestPage() {
     store.onClickReset();
     console.log('click');
-    navigate('/home/scent-test');
+    navigate(`/home/${userid}/scent-test`);
   }
 
   function moveToOtherColorPage() {

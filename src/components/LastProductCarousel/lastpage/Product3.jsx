@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/Header';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import ConditionerImg from '../../../images/LastMain/purple-conditioner.png';
 import BodyWashImg from '../../../images/LastMain/BodyWask_purple.png';
 import LotionImg from '../../../images/LastMain/BodyLotion_purple.png';
@@ -113,6 +113,8 @@ const Image = styled.img`
 `;
 
 const Product3 = () => {
+  const { userid } = useParams();
+
   return (
     <div>
       <Header title="Mood Palette" />
@@ -163,7 +165,7 @@ const Product3 = () => {
         </ProductWrapper>
       </WhiteBox>
 
-      <Link to="/home/last-main">
+      <Link to={`/home/${userid}/last-main`}>
         <MoveBox />
       </Link>
     </div>

@@ -6,7 +6,7 @@ import { animate } from 'components/Animation/animate';
 import NavigationBar from 'components/NavigationBar';
 import { MdArrowForwardIos } from 'react-icons/md';
 import Purple from '../../images/LastMain/purple.jpeg';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const WeekText = styled.div`
   font-size: 18px;
@@ -87,11 +87,15 @@ const MiddleWrapper = styled.div`
 
 const LastMain = () => {
   let navigate = useNavigate();
+
+  const { userid } = useParams();
+
   const moveToLastDetailPage = () => {
-    navigate('/home/last-week');
+    navigate(`/home/${userid}/last-week`);
   };
+
   const moveToThisWeekPage = () => {
-    navigate('/home');
+    navigate(`/home/${userid}`);
   };
 
   return (
