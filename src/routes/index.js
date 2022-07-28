@@ -44,7 +44,7 @@ const Router = () => (
         <Route path="/home/color-detail/:color" element={<ColorDetail />} />
         <Route path="/home/:userid/scent-test" element={<ScentTest />} />
         <Route path="/home/scent-test/result/:color" element={<TestResult />} />
-        <Route path="/home/last-week" element={<LastWeek />} />
+        <Route path="/home//last-week" element={<LastWeek />} />
         <Route path="/home/last-main" element={<LastMain />} />
         <Route path="/home/next-week" element={<NextWeek />} />
         <Route path="/home/next-main" element={<NextMain />} />
