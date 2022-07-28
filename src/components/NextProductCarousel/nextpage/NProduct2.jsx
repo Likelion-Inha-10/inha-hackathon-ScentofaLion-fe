@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/Header';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import CandleImg from '../../../images/NextMain/Candle_Blue.png';
 import RoomImg from '../../../images/NextMain/Room_Blue.jpg';
 import ShampooImg from '../../../images/NextMain/shampoo_Blue.jpg';
@@ -114,6 +114,8 @@ const Image = styled.img`
 `;
 
 const NProduct2 = () => {
+  const { userid } = useParams();
+
   return (
     <div>
       <Header title="Mood Palette" />
@@ -164,7 +166,7 @@ const NProduct2 = () => {
         </ProductWrapper>
       </WhiteBox>
 
-      <Link to="/home/next-main">
+      <Link to={`/home/${userid}/next-main`}>
         <MoveBox />
       </Link>
     </div>

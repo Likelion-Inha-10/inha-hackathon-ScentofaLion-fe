@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { animate } from 'components/Animation/animate';
 import Header from 'components/Header';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import NavigationBar from 'components/NavigationBar';
 import { MdArrowBackIosNew } from 'react-icons/md';
 import Blue from '../../images/NextMain/blue.jpeg';
@@ -85,12 +85,14 @@ const MiddleWrapper = styled.div`
   justify-content: center;
 `;
 function NextMain() {
+  const { userid } = useParams();
   let navigate = useNavigate();
+
   function moveToNextDetailPage() {
-    navigate('/home/next-week');
+    navigate(`/home/${userid}/next-week`);
   }
   function moveToThisWeekPage() {
-    navigate('/home');
+    navigate(`/home/${userid}`);
   }
 
   return (

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -37,11 +38,11 @@ const Next = styled.div`
 `;
 
 const SignUp = () => {
-  const [nickName, setNickName] = useState('');
+  const [nickname, setNickName] = useState('');
   const [email, setEmail] = useState('');
   const [isEmail, setIsEmail] = useState(false);
-  const [password, setPassword] = useState('');
-  const [passwordCheck, setPasswordCheck] = useState('');
+  const [password1, setPassword] = useState('');
+  const [password2, setPasswordCheck] = useState('');
 
   let navigate = useNavigate();
 
@@ -67,13 +68,33 @@ const SignUp = () => {
   };
 
   const onClickSubmit = () => {
-    if (!nickName || !email || !password || !passwordCheck) {
+    if (!nickname || !email || !password1 || !password2) {
       return Alert('모든 항목을 입력해주세요');
     } else if (isEmail) {
       return Alert('이메일 형식이 올바르지 않습니다');
-    } else if (password !== passwordCheck) {
+    } else if (password1 !== password2) {
       return Alert('비밀번호가 동일하지 않습니다');
     } else {
+      console.log({
+        email,
+        password1,
+        password2,
+        nickname,
+      });
+      axios
+        .post(`http://172.104.110.207:8000/account/signup/`, {
+          email,
+          password1,
+          password2,
+          nickname,
+        })
+        .then((response) => {
+          console.log(response);
+          return Alert('회원가입이 완료되었습니다.');
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       navigate('/home/log-in');
     }
   };
