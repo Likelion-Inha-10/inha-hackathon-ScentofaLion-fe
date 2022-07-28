@@ -23,17 +23,8 @@ import SelectColorPremium from 'pages/SelectColorPremium';
 import SelectColorStandard from 'pages/SelectColorStandard';
 import SelectProductStandard from 'pages/SelectProductStandard';
 import SelectProductPremium from 'pages/SelectProductPremium';
-import SelectColor from 'pages/SelectColor';
 import ReviewLoading from '../pages/ReviewLoading';
-import Subscribe from 'pages/Subscribe';
-import SubscribeDone from '../pages/SubscribeDone/index';
-import SelectColorBasic from 'pages/SelectColorBasic';
-import SelectColorPremium from 'pages/SelectColorPremium';
-import SelectColorStandard from 'pages/SelectColorStandard';
-import SelectProductStandard from 'pages/SelectProductStandard';
-import SelectProductPremium from 'pages/SelectProductPremium';
-import SelectColor from 'pages/SelectColor';
-
+import Review from '../pages/Review';
 // 라우트명은 kebab-case 로 작성합니다
 
 const Router = () => (
@@ -62,6 +53,28 @@ const Router = () => (
         <Route path="/home/product-detail" element={<ProductDetail />} />
         <Route path="/home/login-warning" element={<LoginWarning />} />
         <Route path="/home/my-page/:color/:subscribe" element={<MyPage />} />
+        <Route path="/home/subscribe" element={<Subscribe />} />
+        <Route path="/home/subscribe/done" element={<SubscribeDone />} />
+
+        <Route path="/home/review-loading" element={<ReviewLoading />} />
+        <Route
+          path="/home/subscribe/standard"
+          element={<SelectColorStandard />}
+        />
+        <Route
+          path="/home/subscribe/premium"
+          element={<SelectColorPremium />}
+        />
+        <Route path="/home/subscribe/basic" element={<SelectColorBasic />} />
+        <Route
+          path="/home/subscribe/standard-product"
+          element={<SelectProductStandard />}
+        />
+        <Route
+          path="/home/subscribe/premium-product"
+          element={<SelectProductPremium />}
+        />
+        <Route path="/home/review" element={<Review />} />
       </Routes>
     </AnimatePresence>
   </BrowserRouter>
