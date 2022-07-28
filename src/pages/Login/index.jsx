@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 import { motion } from 'framer-motion';
 import { animate } from 'components/Animation/animate';
 import Header from 'components/Header';
@@ -94,8 +95,9 @@ const Underline = styled.hr`
 `;
 
 const Login = () => {
-  const [userName, setUserName] = useState('');
+  const [email, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  let navigate = useNavigate();
 
   const onChangeUserName = (e) => {
     setUserName(e.target.value);
@@ -106,14 +108,22 @@ const Login = () => {
   };
 
   const onClickSubmit = () => {
-    if (!userName || !password) {
+    if (!email || !password) {
       return Alert('모든 항목을 입력해주세요');
     } else {
-      navigate('/home');
+      axios
+        .post(`http://172.104.110.207:8000/account/login/`, { email, password })
+        .then((response) => {
+          console.log(response);
+          navigate(`/home/${response.data.id}`);
+          return Alert('로그인에 성공했습니다.');
+        })
+        .catch((error) => {
+          console.log(error);
+          return Alert('아이디 혹은 비밀번호가 올바르지 않습니다.');
+        });
     }
   };
-
-  let navigate = useNavigate();
 
   function moveToSignUpPage() {
     navigate('/home/sign-up');

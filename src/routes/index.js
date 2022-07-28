@@ -34,7 +34,7 @@ const Router = () => (
     <AnimatePresence>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/home" element={<Main />} />
+        <Route path="/home/:userid" element={<Main />} />
         <Route path="/home/log-in" element={<Login />} />
         <Route path="/home/sign-up" element={<SignUp />} />
         <Route
@@ -44,7 +44,7 @@ const Router = () => (
         <Route path="/home/color-detail/:color" element={<ColorDetail />} />
         <Route path="/home/scent-test" element={<ScentTest />} />
         <Route path="/home/scent-test/result/:color" element={<TestResult />} />
-        <Route path="/home/last-week" element={<LastWeek />} />
+        <Route path="/home//last-week" element={<LastWeek />} />
         <Route path="/home/last-main" element={<LastMain />} />
         <Route path="/home/next-week" element={<NextWeek />} />
         <Route path="/home/next-main" element={<NextMain />} />
