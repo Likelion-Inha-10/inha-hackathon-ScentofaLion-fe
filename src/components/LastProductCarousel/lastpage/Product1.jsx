@@ -16,7 +16,6 @@ const WhiteBox = styled.div`
   margin-left: 5%;
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
   flex-direction: column;
-
   position: absolute;
 `;
 
