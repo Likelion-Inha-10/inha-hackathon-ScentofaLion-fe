@@ -28,8 +28,6 @@ const MainText = styled.div`
   color: black;
 `;
 
-const TextWrapper = styled.div``;
-
 const Box = styled.div`
   height: 400px;
   width: 50%;
@@ -47,9 +45,10 @@ const Box = styled.div`
 
 const BoxWrapper = styled.div`
   height: 600px;
-  width: 100%;
+  width: 101%;
   justify-content: center;
   margin-left: 10%;
+  position: relative;
 `;
 
 const BoxText = styled.div`
@@ -60,7 +59,6 @@ const BoxText = styled.div`
   font-weight: 100;
   line-height: 19px;
   padding-bottom: 10px;
-  color: black;
 `;
 const EBoxText = styled.div`
   width: 70%;
@@ -73,10 +71,29 @@ const EBoxText = styled.div`
   margin-bottom: 20px;
 `;
 
-const BackWrapper = styled.div`
-  height: 600px;
-  width: 100vw;
-  justify-content: center;
+const WhiteBox = styled.div`
+  width: 50%;
+  height: 410px;
+  background-color: white;
+  border-radius: 40px;
+  display: flex;
+  margin-top: 31px;
+  margin-left: 10%;
+  flex-direction: left;
+
+  position: absolute;
+`;
+
+const BlackBox = styled.div`
+  width: 50%;
+  height: 410px;
+  background-color: black;
+  border-radius: 40px;
+  display: flex;
+  margin-top: 31px;
+  margin-left: 40%;
+  flex-direction: right;
+  position: absolute;
 `;
 
 const ReviewLoading = () => {
@@ -96,14 +113,13 @@ const ReviewLoading = () => {
         새로운 경험을 원하신다면 <br />
         선택을 변경해보세요
       </MainText>
+      <WhiteBox></WhiteBox>
+      <BlackBox></BlackBox>
       <BoxWrapper>
         <Button
           marginTop="30"
-          marginBottom="15"
-          marginLeft=""
           width="80"
           height="35"
-          shadow="0 0 0 0.2px black"
           focusBackgroundColor="black"
           radius="40"
         >
@@ -111,19 +127,13 @@ const ReviewLoading = () => {
           <BoxText>이번주 받아보신 제품은 어떠셨나요?</BoxText>
           <BoxText fontWeight="900">리뷰 작성하러 가기</BoxText>
         </Button>
-        <Button
-          marginTop="10"
-          marginBottom="15"
-          width="80"
-          height="35"
-          shadow="0 0 0 0.2px black"
-          radius="40"
-        >
+        <Button width="80" height="35" radius="40">
           <EBoxText>New</EBoxText>
           <BoxText>다음주, 다른 카테고리의 제품을 받아보고 싶으신가요?</BoxText>
           <BoxText fontWeight="900">샘플 변경하러 가기</BoxText>
         </Button>
       </BoxWrapper>
+
       <NavigationBar></NavigationBar>
     </motion.div>
   );
