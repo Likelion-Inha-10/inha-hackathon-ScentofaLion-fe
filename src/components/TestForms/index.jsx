@@ -170,7 +170,16 @@ const TestForms = (state) => {
     test7Result();
 
     console.log(colorScore);
-    let resultColor = 'blue';
+    let colorArray = [
+      'red',
+      'yellow',
+      'green',
+      'blue',
+      'black',
+      'white',
+      'purple',
+    ];
+    let resultColor = colorArray[Math.floor(Math.random() * (7 - 0)) + 0];
     navigate(`/home/scent-test/result/${resultColor}`);
   };
 
