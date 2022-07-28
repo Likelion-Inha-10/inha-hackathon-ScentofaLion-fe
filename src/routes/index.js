@@ -50,26 +50,7 @@ const Router = () => (
         <Route path="/home/product-detail" element={<ProductDetail />} />
         <Route path="/home/login-warning" element={<LoginWarning />} />
         <Route path="/home/my-page/:color/:subscribe" element={<MyPage />} />
-        <Route path="/home/subscribe" element={<Subscribe />} />
-        <Route path="/home/subscribe/done" element={<SubscribeDone />} />
-        <Route path="/home/subscribe/:type" element={<SelectColor />} />
-        <Route
-          path="/home/subscribe/standard"
-          element={<SelectColorStandard />}
-        />
-        <Route
-          path="/home/subscribe/premium"
-          element={<SelectColorPremium />}
-        />
-        <Route path="/home/subscribe/basic" element={<SelectColorBasic />} />
-        <Route
-          path="/home/subscribe/standard-product"
-          element={<SelectProductStandard />}
-        />
-        <Route
-          path="/home/subscribe/premium-product"
-          element={<SelectProductPremium />}
-        />
+        <Route path="/home/review-loading" element={<ReviewLoading />} />
       </Routes>
     </AnimatePresence>
   </BrowserRouter>
