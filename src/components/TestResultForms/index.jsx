@@ -54,7 +54,7 @@ const TestResultForms = () => {
   const { userid } = useParams();
 
   const moveToHomePage = () => {
-    if (userid === 0) {
+    if (userid === '0') {
       navigate('/');
     } else {
       navigate(`/home/${userid}`);

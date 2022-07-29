@@ -19,6 +19,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: ${(props) => props.bgColor || 'none'};
 `;
 
 const NavigationBox = styled.div`
@@ -89,6 +90,20 @@ const NavigationBar = (store) => {
     }
   };
 
+  const moveToReviewPage = () => {
+    if (store.color === '') {
+      if (store.userid === '0') {
+        return Alert('로그인을 먼저 해주세요.');
+      } else {
+        return Alert('테스트를 먼저 진행해주세요.');
+      }
+    } else if (store.price === null) {
+      return Alert('아직 구독하지 않았습니다.');
+    } else {
+      navigate(`/home/${store.userid}/review-loading`);
+    }
+  };
+
   const moveToMyPage = () => {
     if (store.userid === '0') {
       return Alert('로그인을 먼저 해주세요.');
@@ -98,7 +113,7 @@ const NavigationBar = (store) => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper bgColor={store.bgColor}>
       <NavigationBox>
         <NavigationButton type="button" value="home" onClick={moveToHomePage}>
           <MdOutlineHome size="28px" color="white" />
@@ -113,7 +128,11 @@ const NavigationBar = (store) => {
         >
           <MdOutlinePalette size="28px" color="white" />
         </NavigationButton>
-        <NavigationButton type="button" value="review">
+        <NavigationButton
+          type="button"
+          value="review"
+          onClick={moveToReviewPage}
+        >
           <MdOutlineScience size="28px" color="white" />
         </NavigationButton>
         <NavigationButton type="button" value="myPage">

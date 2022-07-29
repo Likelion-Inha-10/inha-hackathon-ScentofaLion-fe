@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import Alert from 'components/Alert';
 import styled from 'styled-components';
 import Button from 'components/Button';
 import { MdArrowForwardIos } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -83,11 +85,24 @@ const ButtonSubText = styled.div`
 
 const SubscribeInfo = (props) => {
   let subscribeTitle =
-    props.subPrice === '3900'
+    props.subPrice === 3900
       ? 'basic'
-      : props.subPrice === '5900'
+      : props.subPrice === 5900
       ? 'standard'
       : 'premium';
+  let navigate = useNavigate();
+
+  const alertInfo = () => {
+    navigate(`/home/${props.userid}/subscribe`);
+    return Alert('구독 페이지로 이동합니다.');
+  };
+
+  const noticeInfo = () => {
+    return Alert(
+      `결제 금액 : ${props.subPrice}원
+          결제일 : ${props.subDate}`,
+    );
+  };
 
   return (
     <>
@@ -102,6 +117,7 @@ const SubscribeInfo = (props) => {
             paddingTop="20"
             paddingBottom="20"
             fontSize="17"
+            onClick={alertInfo}
           >
             <ButtonInnerWrapper>
               <TextWrapper>
@@ -116,7 +132,7 @@ const SubscribeInfo = (props) => {
       <Wrapper visible={props.subPrice !== null}>
         <ContainerTitle>구독 상세 정보</ContainerTitle>
         <Container>
-          <SubscribeDate>구독 시작일 : XXXX.XX.XX</SubscribeDate>
+          <SubscribeDate>구독 시작일 : {props.subDate}</SubscribeDate>
           <Button
             backgroundColor="white"
             focusBackgroundColor="white"
@@ -124,6 +140,7 @@ const SubscribeInfo = (props) => {
             paddingTop="10"
             paddingBottom="10"
             fontSize="17"
+            onClick={alertInfo}
           >
             <ButtonInnerWrapper>
               <TextWrapper>
@@ -140,6 +157,7 @@ const SubscribeInfo = (props) => {
             paddingTop="20"
             paddingBottom="20"
             fontSize="17"
+            onClick={noticeInfo}
           >
             <ButtonInnerWrapper>
               <TextWrapper>

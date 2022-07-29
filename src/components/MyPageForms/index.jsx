@@ -39,7 +39,7 @@ const MyPageForms = () => {
         subPrice={subscribePrice}
         subDate={subscribeDate}
       />
-      <ProductInfo color={userColor} subPrice={subscribePrice} />
+      <ProductInfo subPrice={subscribePrice} color={userColor} />
       <PurchaseInfo />
       <TestInfo userid={userid} color={userColor} />
     </>

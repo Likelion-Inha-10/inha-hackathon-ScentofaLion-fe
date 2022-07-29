@@ -13,9 +13,9 @@ const Title = styled.div`
 const ExplainBox = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 35px;
+  margin-top: 30px;
   width: 100%;
-  height: 20%;
+  height: 5vh;
 `;
 const Explain = styled.div`
   font-size: 15px;
@@ -24,6 +24,18 @@ const Explain = styled.div`
   font-family: 'Noto Sans KR', sans-serif;
   margin-top: 5px;
   font-weight: light;
+  padding-bottom: 5px;
+`;
+
+const ExplainGray = styled.div`
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin-top: 5px;
+  font-weight: light;
+  padding-bottom: 5px;
+  color: #828282;
 `;
 
 const ExplainService = () => {
@@ -32,8 +44,9 @@ const ExplainService = () => {
       <Title>구독서비스</Title>
 
       <ExplainBox>
-        <Explain>매주 새로운 샘플들로 내 일상을 꾸미다</Explain>
         <Explain>총 12가지의 제품들로 매주 바꾸는 무드</Explain>
+        <Explain>다양한 구성으로 나만의 향을 만나보세요</Explain>
+        <ExplainGray>(하단으로 스크롤해 자세한 설명을 확인하세요)</ExplainGray>
       </ExplainBox>
     </div>
   );

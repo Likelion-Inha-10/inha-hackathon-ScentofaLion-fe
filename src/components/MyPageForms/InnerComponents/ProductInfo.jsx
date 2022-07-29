@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
-import productImg from './product.png';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -96,6 +96,71 @@ const ProductName = styled.div`
 `;
 
 const ProductInfo = (props) => {
+  let productArray = [];
+  const [productCode, setProductCode] = useState();
+  console.log(props);
+  useEffect(() => {
+    axios
+      .get(`http://172.104.110.207:8000/product/${props.color}/`)
+      .then((response) => {
+        console.log(response);
+        productArray = response.data;
+        console.log(productArray);
+        const storeCode = (
+          <>
+            <ProductBox>
+              <ImageContainer>
+                <ImageBox
+                  src={
+                    'http://172.104.110.207:8000' + productArray[6].product_img
+                  }
+                />
+              </ImageContainer>
+              <ProductTitle>{productArray[6].product_type}</ProductTitle>
+              <ProductName>{productArray[6].product_name}</ProductName>
+            </ProductBox>
+            <ProductBox>
+              <ImageContainer>
+                <ImageBox
+                  src={
+                    'http://172.104.110.207:8000' + productArray[0].product_img
+                  }
+                />
+              </ImageContainer>
+              <ProductTitle>{productArray[0].product_type}</ProductTitle>
+              <ProductName>{productArray[0].product_name}</ProductName>
+            </ProductBox>
+            <ProductBox>
+              <ImageContainer>
+                <ImageBox
+                  src={
+                    'http://172.104.110.207:8000' + productArray[8].product_img
+                  }
+                />
+              </ImageContainer>
+              <ProductTitle>{productArray[8].product_type}</ProductTitle>
+              <ProductName>{productArray[8].product_name}</ProductName>
+            </ProductBox>
+            <ProductBox margin="8">
+              <ImageContainer>
+                <ImageBox
+                  src={
+                    'http://172.104.110.207:8000' + productArray[10].product_img
+                  }
+                />
+              </ImageContainer>
+              <ProductTitle>{productArray[10].product_type}</ProductTitle>
+              <ProductName>{productArray[10].product_name}</ProductName>
+            </ProductBox>
+          </>
+        );
+        setProductCode(storeCode);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [props.color]);
+
   return (
     <>
       <Wrapper visible={props.subPrice === null}>
@@ -107,29 +172,7 @@ const ProductInfo = (props) => {
 
       <Wrapper visible={props.subPrice !== null}>
         <ContainerTitle>구독 제품 목록</ContainerTitle>
-        <Container>
-          <ProductBox>
-            <ImageContainer>
-              <ImageBox src={productImg} />
-            </ImageContainer>
-            <ProductTitle>디퓨저</ProductTitle>
-            <ProductName>포맨트 올라운드 퍼퓸 코튼키스</ProductName>
-          </ProductBox>
-          <ProductBox>
-            <ImageContainer>
-              <ImageBox src={productImg} />
-            </ImageContainer>
-            <ProductTitle>디퓨저</ProductTitle>
-            <ProductName>포맨트 올라운드 퍼퓸 코튼키스</ProductName>
-          </ProductBox>
-          <ProductBox margin="8">
-            <ImageContainer>
-              <ImageBox src={productImg} />
-            </ImageContainer>
-            <ProductTitle>디퓨저</ProductTitle>
-            <ProductName>포맨트 올라운드 퍼퓸 코튼키스</ProductName>
-          </ProductBox>
-        </Container>
+        <Container>{productCode}</Container>
       </Wrapper>
     </>
   );

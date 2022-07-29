@@ -18,14 +18,11 @@ import LoginWarning from '../pages/LoginWarning';
 import MyPage from './../pages/MyPage/index';
 import Subscribe from 'pages/Subscribe';
 import SubscribeDone from '../pages/SubscribeDone/index';
-import SelectColorBasic from 'pages/SelectColorBasic';
-import SelectColorPremium from 'pages/SelectColorPremium';
-import SelectColorStandard from 'pages/SelectColorStandard';
-import SelectProductStandard from 'pages/SelectProductStandard';
-import SelectProductPremium from 'pages/SelectProductPremium';
-//import SelectColor from 'pages/SelectColor';
+import SelectColor from 'pages/SelectColor';
+import SelectProduct from 'pages/SelectProduct/index';
 import ReviewLoading from '../pages/ReviewLoading';
 import Review from '../pages/Review';
+
 // 라우트명은 kebab-case 로 작성합니다
 
 const Router = () => (
@@ -54,31 +51,30 @@ const Router = () => (
         <Route path="/home/:userid/last-main" element={<LastMain />} />
         <Route path="/home/:userid/next-week" element={<NextWeek />} />
         <Route path="/home/:userid/next-main" element={<NextMain />} />
-        <Route path="/home/product-detail" element={<ProductDetail />} />
+        <Route
+          path="/home/:userid/product-detail"
+          element={<ProductDetail />}
+        />
         <Route path="/home/login-warning" element={<LoginWarning />} />
         <Route path="/home/:userid/my-page" element={<MyPage />} />
-        <Route path="/home/subscribe" element={<Subscribe />} />
-        <Route path="/home/subscribe/done" element={<SubscribeDone />} />
-
-        <Route path="/home/review-loading" element={<ReviewLoading />} />
+        <Route path="/home/:userid/subscribe" element={<Subscribe />} />
         <Route
-          path="/home/subscribe/standard"
-          element={<SelectColorStandard />}
+          path="/home/:userid/subscribe/:subprice"
+          element={<SelectColor />}
         />
         <Route
-          path="/home/subscribe/premium"
-          element={<SelectColorPremium />}
-        />
-        <Route path="/home/subscribe/basic" element={<SelectColorBasic />} />
-        <Route
-          path="/home/subscribe/standard-product"
-          element={<SelectProductStandard />}
+          path="/home/:userid/subscribe/:subprice/:color"
+          element={<SelectProduct />}
         />
         <Route
-          path="/home/subscribe/premium-product"
-          element={<SelectProductPremium />}
+          path="/home/:userid/subscribe/:subprice/:color/done"
+          element={<SubscribeDone />}
         />
-        <Route path="/home/review" element={<Review />} />
+        <Route path="/home/:userid/review" element={<Review />} />
+        <Route
+          path="/home/:userid/review-loading"
+          element={<ReviewLoading />}
+        />
       </Routes>
     </AnimatePresence>
   </BrowserRouter>

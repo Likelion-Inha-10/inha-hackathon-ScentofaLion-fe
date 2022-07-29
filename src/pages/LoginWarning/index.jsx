@@ -69,7 +69,7 @@ const LoginWarning = () => {
   }
 
   function moveToTestPage() {
-    navigate('/home/scent-test');
+    navigate('/home/0/scent-test');
   }
 
   return (

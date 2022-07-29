@@ -1,22 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { animate } from 'components/Animation/animate';
 import Header from 'components/Header';
 import NavigationBar from 'components/NavigationBar';
 import { Link } from 'react-router-dom';
-import WashImg from '../../images/LastMain/Handwash_Purple.png';
-import DiffuserImg from '../../images/LastMain/Diffuser_Purple.jpg';
-import CreamImg from '../../images/LastMain/Handcream_Purple.png';
+import { useParams } from 'react-router-dom';
 
 const WhiteBox = styled.div`
-  width: 90%;
-  height: 630px;
+  width: 84%;
+  height: 550px;
   background-color: white;
   border-radius: 41px 0px 41px 41px;
   display: flex;
   margin-top: 20px;
-  margin-left: 5%;
+  margin-left: 7%;
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
   flex-direction: column;
 
@@ -31,6 +30,7 @@ const Wrapper = styled.div`
   width: 90%;
   height: 20%;
 `;
+
 const WeekText = styled.div`
   font-size: 18px;
   font-family: 'Frank Ruhl Libre', serif;
@@ -41,6 +41,7 @@ const WeekText = styled.div`
 const Underline = styled.hr`
   width: 90%;
   margin-top: 16px;
+  margin-bottom: 30px;
 `;
 
 const LineName = styled.div`
@@ -50,32 +51,21 @@ const LineName = styled.div`
   color: #595959;
   margin-bottom: 13px;
 `;
-const BrandName = styled.div`
-  font-size: 12px;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 800;
-  color: #595959;
-  margin-bottom: 13px;
-`;
 
 const ProductName = styled.div`
+  width: 75%;
   font-size: 15px;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
+  word-break: keep-all;
+  line-height: 1.3;
   color: black;
   margin-bottom: 6px;
 `;
 
-const ProductName2 = styled.div`
-  font-size: 13px;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 800;
-  color: black;
-`;
-
 const MoveBox = styled.div`
   width: 90%;
-  height: 630px;
+  height: 550px;
   background-color: white;
   border-radius: 41px 0px 41px 41px;
   display: flex;
@@ -96,12 +86,14 @@ const ProductWrapper = styled.div`
   margin-left: 10%;
   align-items: flex-start;
 `;
+
 const TextBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 40px;
   margin-left: 10%;
+  padding-top: 10px;
 `;
 
 const ImgBox = styled.div`
@@ -116,6 +108,83 @@ const Image = styled.img`
 `;
 
 const ProductDetail = () => {
+  let productArray = [];
+  const { userid } = useParams();
+  const [userColor, setUserColor] = useState();
+  const [productCode, setProductCode] = useState();
+
+  useEffect(() => {
+    axios
+      .get(`http://172.104.110.207:8000/account/${userid}/`)
+      .then((response) => {
+        console.log(response);
+        setUserColor(response.data.user_color);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get(`http://172.104.110.207:8000/product/${userColor}/`)
+      .then((response) => {
+        console.log(response);
+        productArray = response.data;
+        console.log(productArray);
+        const storeCode = (
+          <>
+            <ProductWrapper>
+              <ImgBox>
+                <Image
+                  src={
+                    'http://172.104.110.207:8000' + productArray[6].product_img
+                  }
+                ></Image>
+              </ImgBox>
+
+              <TextBox>
+                <LineName>{productArray[6].product_type}</LineName>
+                <ProductName>{productArray[6].product_name}</ProductName>
+              </TextBox>
+            </ProductWrapper>
+            <ProductWrapper>
+              <ImgBox>
+                <Image
+                  src={
+                    'http://172.104.110.207:8000' + productArray[8].product_img
+                  }
+                ></Image>
+              </ImgBox>
+
+              <TextBox>
+                <LineName>{productArray[8].product_type}</LineName>
+                <ProductName>{productArray[8].product_name}</ProductName>
+              </TextBox>
+            </ProductWrapper>
+            <ProductWrapper>
+              <ImgBox>
+                <Image
+                  src={
+                    'http://172.104.110.207:8000' + productArray[0].product_img
+                  }
+                ></Image>
+              </ImgBox>
+
+              <TextBox>
+                <LineName>{productArray[0].product_type}</LineName>
+                <ProductName>{productArray[0].product_name}</ProductName>
+              </TextBox>
+            </ProductWrapper>
+          </>
+        );
+        setProductCode(storeCode);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [userColor]);
+
   return (
     <motion.div
       initial={animate.initial}
@@ -129,52 +198,14 @@ const ProductDetail = () => {
           <WeekText>This week</WeekText>
           <Underline />
         </Wrapper>
-
-        <ProductWrapper>
-          <ImgBox>
-            <Image src={DiffuserImg}></Image>
-          </ImgBox>
-
-          <TextBox>
-            <LineName>디퓨저</LineName>
-            <BrandName>Art Box</BrandName>
-            <ProductName>허브타임 실내 디퓨저</ProductName>
-            <ProductName2>Herb Time</ProductName2>
-          </TextBox>
-        </ProductWrapper>
-
-        <ProductWrapper>
-          <ImgBox>
-            <Image src={WashImg}></Image>
-          </ImgBox>
-
-          <TextBox>
-            <LineName>핸드워시</LineName>
-            <BrandName>그린코스</BrandName>
-            <ProductName>보타니컬테라피 포밍 핸드워시</ProductName>
-            <ProductName2>프렌치 라벤더</ProductName2>
-          </TextBox>
-        </ProductWrapper>
-
-        <ProductWrapper>
-          <ImgBox>
-            <Image src={CreamImg}></Image>
-          </ImgBox>
-
-          <TextBox>
-            <LineName>핸드크림</LineName>
-            <BrandName>데일리 비건</BrandName>
-            <ProductName>데일리 비건 핸드 세이버</ProductName>
-            <ProductName2>보라</ProductName2>
-          </TextBox>
-        </ProductWrapper>
+        {productCode}
       </WhiteBox>
 
-      <Link to="/home">
+      <Link to={`/home/${userid}`}>
         <MoveBox />
       </Link>
 
-      <NavigationBar />
+      <NavigationBar userid={userid} color={userColor} />
     </motion.div>
   );
 };

@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 import { animate } from 'components/Animation/animate';
 import Header from 'components/Header';
 import NavigationBar from 'components/NavigationBar';
-import ColorStandard from 'components/subStandard/color/ColorStandard';
+import ProductStandard from 'components/subStandard/product/ProductStandard';
 import { useParams } from 'react-router-dom';
 
-const SelectColor = () => {
+const SelectProduct = () => {
   const { userid } = useParams();
   const [userColor, setUserColor] = useState();
 
@@ -29,12 +29,11 @@ const SelectColor = () => {
       animate={animate.animate}
       exit={animate.exit}
     >
-      {' '}
       <Header title="Subscribe" />
-      <ColorStandard />
+      <ProductStandard />
       <NavigationBar userid={userid} color={userColor} />
     </motion.div>
   );
 };
 
-export default SelectColor;
+export default SelectProduct;

@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from 'components/Button';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: 40%;
+  margin-top: 20px;
 `;
 const InnerWrapper = styled.div`
   display: flex;
@@ -24,6 +25,7 @@ const Box = styled.div`
   margin-left: 20%;
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
   flex-direction: column;
+  align-items: center;
 `;
 
 const LineText = styled.div`
@@ -51,17 +53,33 @@ const Underline = styled.hr`
   margin-bottom: 15px;
 `;
 
+const ExplainDetail = styled.div`
+  height: 100px;
+  margin-left: 5vw;
+  font-size: 14px;
+  display: flex;
+  justify-content: left;
+  line-height: 1.5;
+  word-break: keep-all;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin-top: 8px;
+  font-weight: light;
+  margin-top: 40px;
+  margin-bottom: 100px;
+`;
+
 const ListBox = () => {
+  const { userid } = useParams();
   let navigate = useNavigate();
 
   const moveToBasic = () => {
-    navigate('/home/subscribe/basic');
+    navigate(`/home/${userid}/subscribe/3900`);
   };
   const moveToStandard = () => {
-    navigate('/home/subscribe/standard');
+    navigate(`/home/${userid}/subscribe/5900`);
   };
   const moveToPremium = () => {
-    navigate('/home/subscribe/premium');
+    navigate(`/home/${userid}/subscribe/9900`);
   };
   return (
     <div>
@@ -78,12 +96,12 @@ const ListBox = () => {
               월 3,900원
             </InnerText>
             <Button
+              width="90"
               height="12"
               backgroundColor="black"
               fontColor="white"
-              marginTop="20"
+              marginTop="23"
               fontSize="17"
-              paddingTop="1"
               onClick={moveToBasic}
             >
               Subscribe
@@ -105,13 +123,13 @@ const ListBox = () => {
               월 5,900원
             </InnerText>
             <Button
+              width="90"
               height="10"
               backgroundColor="black"
               fontColor="white"
-              marginTop="20"
+              marginTop="23"
               fontSize="17"
               marginBottom="8"
-              paddingTop="2"
               onClick={moveToStandard}
             >
               Subscribe
@@ -135,13 +153,13 @@ const ListBox = () => {
               월 9,900원
             </InnerText>
             <Button
+              width="90"
               height="10"
               backgroundColor="black"
               fontColor="white"
               marginTop="20"
               fontSize="17"
               marginBottom="8"
-              paddingTop="2"
               onClick={moveToPremium}
             >
               Subscribe
@@ -149,6 +167,11 @@ const ListBox = () => {
           </Box>
         </InnerWrapper>
       </Wrapper>
+      <ExplainDetail>
+        • Basic : 기본 제공 4종류 제품
+        <br /> • Standard : 기본 제공 제품과 2가지 자율 선택 제품
+        <br /> • Premium : 향수가 포함된 5종류 제품과 2가지 자율 선택 제품
+      </ExplainDetail>
     </div>
   );
 };
