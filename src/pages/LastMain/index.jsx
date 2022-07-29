@@ -102,7 +102,7 @@ const LastMain = () => {
 
   useEffect(() => {
     axios
-      .get(`http://172.104.110.207:8000/account/${userid}/`)
+      .get(`https://moodpalette.b-cdn.net/account/${userid}/`)
       .then((response) => {
         console.log(response);
         setUserColor(response.data.user_color);
