@@ -159,7 +159,7 @@ const ProductInfo = (props) => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [props.color]);
 
   return (
     <>

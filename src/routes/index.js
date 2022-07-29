@@ -51,7 +51,10 @@ const Router = () => (
         <Route path="/home/:userid/last-main" element={<LastMain />} />
         <Route path="/home/:userid/next-week" element={<NextWeek />} />
         <Route path="/home/:userid/next-main" element={<NextMain />} />
-        <Route path="/home/product-detail" element={<ProductDetail />} />
+        <Route
+          path="/home/:userid/product-detail"
+          element={<ProductDetail />}
+        />
         <Route path="/home/login-warning" element={<LoginWarning />} />
         <Route path="/home/:userid/my-page" element={<MyPage />} />
         <Route path="/home/:userid/subscribe" element={<Subscribe />} />
@@ -67,8 +70,11 @@ const Router = () => (
           path="/home/:userid/subscribe/:subprice/:color/done"
           element={<SubscribeDone />}
         />
-        <Route path="/home/review" element={<Review />} />
-        <Route path="/home/review-loading" element={<ReviewLoading />} />
+        <Route path="/home/:userid/review" element={<Review />} />
+        <Route
+          path="/home/:userid/review-loading"
+          element={<ReviewLoading />}
+        />
       </Routes>
     </AnimatePresence>
   </BrowserRouter>

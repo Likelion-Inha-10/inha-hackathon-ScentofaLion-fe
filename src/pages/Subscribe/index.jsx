@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { motion } from 'framer-motion';
+import { animate } from 'components/Animation/animate';
 import Header from 'components/Header';
 import NavigationBar from 'components/NavigationBar';
 import SubscribeForms from 'components/SubscribeForms';
@@ -22,11 +24,15 @@ const Subscribe = () => {
   }, []);
 
   return (
-    <div>
+    <motion.div
+      initial={animate.initial}
+      animate={animate.animate}
+      exit={animate.exit}
+    >
       <Header title="Subscribe" />
       <SubscribeForms />
       <NavigationBar userid={userid} color={userColor} bgColor={'#FFFAF5'} />
-    </div>
+    </motion.div>
   );
 };
 

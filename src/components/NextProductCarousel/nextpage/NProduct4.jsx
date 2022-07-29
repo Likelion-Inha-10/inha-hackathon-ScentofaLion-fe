@@ -116,7 +116,7 @@ const NProduct4 = () => {
 
         <ProductWrapper>
           <ImgBox>
-            <Image></Image>
+            <Image src={MistImg}></Image>
           </ImgBox>
 
           <TextBox>
@@ -128,7 +128,7 @@ const NProduct4 = () => {
 
         <ProductWrapper>
           <ImgBox>
-            <Image></Image>
+            <Image src={FabricImg}></Image>
           </ImgBox>
 
           <TextBox>
@@ -140,7 +140,7 @@ const NProduct4 = () => {
 
         <ProductWrapper>
           <ImgBox>
-            <Image></Image>
+            <Image src={PerfumeImg}></Image>
           </ImgBox>
 
           <TextBox>

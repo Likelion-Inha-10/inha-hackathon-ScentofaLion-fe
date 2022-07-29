@@ -116,7 +116,7 @@ const Product1 = () => {
 
         <ProductWrapper>
           <ImgBox>
-            <Image></Image>
+            <Image src={DiffuserImg}></Image>
           </ImgBox>
 
           <TextBox>
@@ -128,7 +128,7 @@ const Product1 = () => {
 
         <ProductWrapper>
           <ImgBox>
-            <Image></Image>
+            <Image src={WashImg}></Image>
           </ImgBox>
 
           <TextBox>
@@ -142,7 +142,7 @@ const Product1 = () => {
 
         <ProductWrapper>
           <ImgBox>
-            <Image></Image>
+            <Image src={CreamImg}></Image>
           </ImgBox>
 
           <TextBox>

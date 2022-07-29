@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { motion } from 'framer-motion';
+import { animate } from 'components/Animation/animate';
 import styled from 'styled-components';
 import Header from 'components/Header';
 import NavigationBar from 'components/NavigationBar';
@@ -46,7 +48,11 @@ const SubscribeDone = () => {
   }, []);
 
   return (
-    <div>
+    <motion.div
+      initial={animate.initial}
+      animate={animate.animate}
+      exit={animate.exit}
+    >
       <Header title="Subscribe" />
       <Wrapper>
         <InfoTitleBorder>Subscribe</InfoTitleBorder>
@@ -55,7 +61,7 @@ const SubscribeDone = () => {
 
       <TextBox>✧ 구독해주셔서 감사합니다 ✧</TextBox>
       <NavigationBar userid={userid} color={userColor} />
-    </div>
+    </motion.div>
   );
 };
 

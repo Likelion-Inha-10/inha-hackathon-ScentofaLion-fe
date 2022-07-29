@@ -117,6 +117,7 @@ const SubscribeInfo = (props) => {
             paddingTop="20"
             paddingBottom="20"
             fontSize="17"
+            onClick={alertInfo}
           >
             <ButtonInnerWrapper>
               <TextWrapper>

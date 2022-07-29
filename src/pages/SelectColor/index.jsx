@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { motion } from 'framer-motion';
+import { animate } from 'components/Animation/animate';
 import Header from 'components/Header';
 import NavigationBar from 'components/NavigationBar';
 import ColorStandard from 'components/subStandard/color/ColorStandard';
@@ -22,12 +24,16 @@ const SelectColor = () => {
   }, []);
 
   return (
-    <div>
+    <motion.div
+      initial={animate.initial}
+      animate={animate.animate}
+      exit={animate.exit}
+    >
       {' '}
       <Header title="Subscribe" />
       <ColorStandard />
       <NavigationBar userid={userid} color={userColor} />
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import Alert from 'components/Alert';
 import styled from 'styled-components';
 import Button from 'components/Button';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -84,8 +85,20 @@ const ResultETC = (store) => {
     navigate(`/home/${userid}/scent-test`);
   }
 
+  function moveToSubscribePage() {
+    if (userid === '0') {
+      return Alert('로그인이 필요합니다.');
+    } else {
+      navigate(`/home/${userid}/subscribe`);
+    }
+  }
+
   function moveToOtherColorPage() {
-    navigate(`/home/other-color/except/${color}`);
+    if (userid === '0') {
+      return Alert('로그인이 필요합니다.');
+    } else {
+      navigate(`/home/${userid}/other-color/except/${color}`);
+    }
   }
 
   return (
@@ -111,6 +124,7 @@ const ResultETC = (store) => {
             paddingBottom="10"
             paddingLeft="25"
             paddingRight="25"
+            onClick={moveToSubscribePage}
           >
             나만의 추천 제품 구독하러 가기
           </Button>

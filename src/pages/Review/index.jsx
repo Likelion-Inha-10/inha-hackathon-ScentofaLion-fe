@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import Header from 'components/Header';
 import { useParams } from 'react-router-dom';
@@ -64,6 +65,7 @@ const ImgBox = styled.div`
 const Image = styled.img`
   width: 100%;
   height: 100%;
+  object-fit: cover;
 `;
 
 const KeywordWrapper = styled.div`
@@ -98,6 +100,19 @@ const Underline = styled.hr`
 
 const Review = () => {
   const { userid } = useParams();
+  const [userColor, setUserColor] = useState();
+
+  useEffect(() => {
+    axios
+      .get(`http://172.104.110.207:8000/account/${userid}/`)
+      .then((response) => {
+        console.log(response);
+        setUserColor(response.data.user_color);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   const onClickSubmit = () => {
     Alert('현재 리뷰 작성 기간이 아닙니다');
@@ -110,7 +125,7 @@ const Review = () => {
       <WhiteBox>
         <ProductWrapper>
           <ImgBox>
-            <Image src={CandleImg}></Image>
+            <Image src={CandleImg} />
           </ImgBox>
 
           <TextBox>
@@ -140,7 +155,7 @@ const Review = () => {
 
         <ProductWrapper>
           <ImgBox>
-            <Image src={BodyWashImg}></Image>
+            <Image src={BodyWashImg} />
           </ImgBox>
 
           <TextBox>
@@ -169,7 +184,7 @@ const Review = () => {
         </KeywordWrapper>
       </WhiteBox>
 
-      <NavigationBar color="" userid="0" />
+      <NavigationBar color={userColor} userid={userid} />
     </>
   );
 };

@@ -130,7 +130,7 @@ function Main() {
     if (isSubscibe === null) {
       return Alert('아직 구독을 하지 않으셨어요.');
     } else {
-      navigate('/home/product-detail');
+      navigate(`/home/${userid}/product-detail`);
     }
   }
 
