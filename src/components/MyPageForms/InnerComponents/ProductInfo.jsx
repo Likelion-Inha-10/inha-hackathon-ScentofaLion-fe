@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import productImg from './product.png';
 
@@ -96,6 +97,31 @@ const ProductName = styled.div`
 `;
 
 const ProductInfo = (props) => {
+  let productArray = [];
+  const [productCode, setProductCode] = useState();
+  useEffect(() => {
+    axios
+      .get(`http://172.104.110.207:8000/product/white/`)
+      .then((response) => {
+        console.log(response);
+        productArray = response.data;
+        console.log(productArray);
+        const storeCode = (
+          <ProductBox>
+            <ImageContainer>
+              <ImageBox src={productArray[1].product_img} />
+            </ImageContainer>
+            <ProductTitle>{productArray[1].product_type}</ProductTitle>
+            <ProductName>{productArray[1].product_name}</ProductName>
+          </ProductBox>
+        );
+        setProductCode(storeCode);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <>
       <Wrapper visible={props.subPrice === null}>
@@ -108,13 +134,7 @@ const ProductInfo = (props) => {
       <Wrapper visible={props.subPrice !== null}>
         <ContainerTitle>구독 제품 목록</ContainerTitle>
         <Container>
-          <ProductBox>
-            <ImageContainer>
-              <ImageBox src={productImg} />
-            </ImageContainer>
-            <ProductTitle>디퓨저</ProductTitle>
-            <ProductName>포맨트 올라운드 퍼퓸 코튼키스</ProductName>
-          </ProductBox>
+          {productCode}
           <ProductBox>
             <ImageContainer>
               <ImageBox src={productImg} />

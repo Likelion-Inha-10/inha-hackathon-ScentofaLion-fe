@@ -19,6 +19,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: ${(props) => props.bgColor || 'none'};
 `;
 
 const NavigationBox = styled.div`
@@ -98,7 +99,7 @@ const NavigationBar = (store) => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper bgColor={store.bgColor}>
       <NavigationBox>
         <NavigationButton type="button" value="home" onClick={moveToHomePage}>
           <MdOutlineHome size="28px" color="white" />
