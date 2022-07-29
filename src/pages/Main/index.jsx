@@ -312,9 +312,9 @@ function Main() {
           <Keyword>#Berries</Keyword>
         </KeywordBox>
       </Wrapper>
-      <NavigationBar />
+      <NavigationBar color={userColor} userid={userid} />
     </motion.div>
   );
-};
+}
 
 export default Main;

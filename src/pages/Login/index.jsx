@@ -143,7 +143,7 @@ const Login = () => {
             <Input
               onChange={onChangeUserName}
               type="text"
-              placeholder="USERNAME"
+              placeholder="EMAIL"
             />
             <Underline />
             <br />
@@ -198,7 +198,7 @@ const Login = () => {
           My sent <br /> ?
         </Text>
       </Qwrapper>
-      <NavigationBar />
+      <NavigationBar color="" userid="0" />
     </motion.div>
   );
 };

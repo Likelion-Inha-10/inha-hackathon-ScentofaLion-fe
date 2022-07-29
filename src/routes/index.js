@@ -23,6 +23,7 @@ import SelectColorPremium from 'pages/SelectColorPremium';
 import SelectColorStandard from 'pages/SelectColorStandard';
 import SelectProductStandard from 'pages/SelectProductStandard';
 import SelectProductPremium from 'pages/SelectProductPremium';
+//import SelectColor from 'pages/SelectColor';
 import ReviewLoading from '../pages/ReviewLoading';
 import Review from '../pages/Review';
 // 라우트명은 kebab-case 로 작성합니다
@@ -37,10 +38,13 @@ const Router = () => (
         <Route path="/home/log-in" element={<Login />} />
         <Route path="/home/sign-up" element={<SignUp />} />
         <Route
-          path="/home/other-color/except/:color"
+          path="/home/:userid/other-color/except/:color"
           element={<OtherColor />}
         />
-        <Route path="/home/color-detail/:color" element={<ColorDetail />} />
+        <Route
+          path="/home/:userid/color-detail/:color"
+          element={<ColorDetail />}
+        />
         <Route path="/home/:userid/scent-test" element={<ScentTest />} />
         <Route
           path="/home/:userid/scent-test/result/:color"
@@ -52,7 +56,7 @@ const Router = () => (
         <Route path="/home/:userid/next-main" element={<NextMain />} />
         <Route path="/home/product-detail" element={<ProductDetail />} />
         <Route path="/home/login-warning" element={<LoginWarning />} />
-        <Route path="/home/my-page/:color/:subscribe" element={<MyPage />} />
+        <Route path="/home/:userid/my-page" element={<MyPage />} />
         <Route path="/home/subscribe" element={<Subscribe />} />
         <Route path="/home/subscribe/done" element={<SubscribeDone />} />
 

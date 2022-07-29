@@ -78,7 +78,7 @@ const InfoText = styled.div`
 const LandingInner3 = () => {
   let navigate = useNavigate();
   function moveToTestPage() {
-    navigate('/home/0/scent-test');
+    navigate('/home/login-warning');
   }
 
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from 'components/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import ResultTitle from 'components/TestResultForms/InnerComponents/ResultTitle';
 import ColorImage from 'components/TestResultForms/InnerComponents/ColorImage';
 import ColorInfo from 'components/TestResultForms/InnerComponents/ColorInfo';
@@ -28,11 +28,13 @@ const ButtonWrapper = styled.div`
 
 const ColorDetailForms = () => {
   let navigate = useNavigate();
+  const { userid } = useParams();
+
   function moveToPastPage() {
     navigate(-1);
   }
   function moveToMainPage() {
-    navigate('/home');
+    navigate(`/home/${userid}`);
   }
 
   return (

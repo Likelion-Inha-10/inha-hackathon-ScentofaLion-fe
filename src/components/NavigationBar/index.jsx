@@ -1,4 +1,5 @@
 import React from 'react';
+import Alert from 'components/Alert';
 import styled from 'styled-components';
 import { reset } from '../../redux/actions';
 import { connect } from 'react-redux';
@@ -60,17 +61,40 @@ const NavigationBar = (store) => {
   let navigate = useNavigate();
 
   const moveToHomePage = () => {
-    navigate('/home');
+    if (store.userid === '0') {
+      return Alert('로그인을 먼저 해주세요.');
+    } else {
+      navigate(`/home/${store.userid}`);
+    }
   };
 
   const moveToOtherColorPage = () => {
-    navigate('/home/other-color/except/red');
+    if (store.color === '') {
+      if (store.userid === '0') {
+        return Alert('로그인을 먼저 해주세요.');
+      } else {
+        return Alert('테스트를 먼저 진행해주세요.');
+      }
+    } else {
+      navigate(`/home/${store.userid}/other-color/except/${store.color}`);
+    }
   };
 
   const moveToTestPage = () => {
     store.onClickReset();
-    console.log('click');
-    navigate('/home/scent-test');
+    if (store.userid === '0') {
+      navigate('/home/login-warning');
+    } else {
+      navigate(`/home/${store.userid}/scent-test`);
+    }
+  };
+
+  const moveToMyPage = () => {
+    if (store.userid === '0') {
+      return Alert('로그인을 먼저 해주세요.');
+    } else {
+      navigate(`/home/${store.userid}/my-page`);
+    }
   };
 
   return (
@@ -79,7 +103,7 @@ const NavigationBar = (store) => {
         <NavigationButton type="button" value="home" onClick={moveToHomePage}>
           <MdOutlineHome size="28px" color="white" />
         </NavigationButton>
-        <NavigationButton type="button" value="review">
+        <NavigationButton type="button" value="test" onClick={moveToTestPage}>
           <MdOutlineBrush size="28px" color="white" />
         </NavigationButton>
         <NavigationButton
@@ -89,11 +113,15 @@ const NavigationBar = (store) => {
         >
           <MdOutlinePalette size="28px" color="white" />
         </NavigationButton>
-        <NavigationButton type="button" value="test" onClick={moveToTestPage}>
+        <NavigationButton type="button" value="review">
           <MdOutlineScience size="28px" color="white" />
         </NavigationButton>
         <NavigationButton type="button" value="myPage">
-          <MdOutlineEmojiEmotions size="28px" color="white" />
+          <MdOutlineEmojiEmotions
+            size="28px"
+            color="white"
+            onClick={moveToMyPage}
+          />
         </NavigationButton>
       </NavigationBox>
     </Wrapper>

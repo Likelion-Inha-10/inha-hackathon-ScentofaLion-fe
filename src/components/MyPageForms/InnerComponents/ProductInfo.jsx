@@ -1,6 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
 import productImg from './product.png';
 
 const Wrapper = styled.div`
@@ -46,24 +46,6 @@ const Container = styled.div`
   padding-top: 20px;
   padding-bottom: 20px;
 `;
-
-/*
-  &::-webkit-scrollbar {
-    display: block;
-    width: 0px;
-    height: 5px;
-    border-radius: 5px;
-    background: rgba(0, 0, 0, 0.2);
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: black;
-    border-radius: 5px;
-  }
-  &::-webkit-scrollbar-button {
-    background: none;
-    width: 8vw;
-  }
-  */
 
 const ProductBox = styled.div`
   width: 260px;
@@ -113,19 +95,17 @@ const ProductName = styled.div`
   margin-top: 10px;
 `;
 
-const ProductInfo = () => {
-  const { subscribe } = useParams('subscribe');
-
+const ProductInfo = (props) => {
   return (
     <>
-      <Wrapper visible={subscribe === 'none'}>
+      <Wrapper visible={props.subPrice === null}>
         <ContainerTitle>구독 제품 목록</ContainerTitle>
         <NotSubscribeContainer>
           아직 구독을 하지 않았어요.
         </NotSubscribeContainer>
       </Wrapper>
 
-      <Wrapper visible={subscribe !== 'none'}>
+      <Wrapper visible={props.subPrice !== null}>
         <ContainerTitle>구독 제품 목록</ContainerTitle>
         <Container>
           <ProductBox>

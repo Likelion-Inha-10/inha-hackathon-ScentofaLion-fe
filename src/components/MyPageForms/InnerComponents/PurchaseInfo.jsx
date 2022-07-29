@@ -1,4 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
+import Alert from 'components/Alert';
 import styled from 'styled-components';
 import Button from 'components/Button';
 import { MdArrowForwardIos } from 'react-icons/md';
@@ -90,6 +92,10 @@ const SubText = styled.div`
 `;
 
 const PurchaseInfo = () => {
+  const alertInfo = () => {
+    return Alert('진행중인 주문내역이 없어요.');
+  };
+
   return (
     <>
       <Wrapper>
@@ -101,6 +107,7 @@ const PurchaseInfo = () => {
             paddingTop="15"
             paddingBottom="15"
             fontSize="17"
+            onClick={alertInfo}
           >
             <ButtonInnerWrapper>
               <TextWrapper>

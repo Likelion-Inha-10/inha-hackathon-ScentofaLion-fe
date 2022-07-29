@@ -176,7 +176,7 @@ const SignUp = () => {
             <Next>가입하기</Next>
           </Button>
         </Wrapper>
-        <NavigationBar />
+        <NavigationBar color="" userid="0" />
       </div>
     </motion.div>
   );

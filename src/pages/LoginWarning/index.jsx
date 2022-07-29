@@ -89,7 +89,6 @@ const LoginWarning = () => {
         <Button
           marginTop="10"
           marginBottom="15"
-          paddingTop="10"
           width="80"
           height="10"
           shadow="0 0 0 0.2px black"
@@ -100,7 +99,7 @@ const LoginWarning = () => {
 
         <Ignore onClick={moveToTestPage}>무시하기</Ignore>
       </Bottom>
-      <NavigationBar></NavigationBar>
+      <NavigationBar color="" userid="0" />
     </motion.div>
   );
 };

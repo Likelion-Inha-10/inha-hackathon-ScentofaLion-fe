@@ -64,6 +64,7 @@ const SecondButtonGroup = styled.div`
 
 const ColorButton = () => {
   const { color } = useParams();
+  const { userid } = useParams();
   const [firstThreeColors, setFirstThreeColors] = useState();
   const [secondThreeColors, setSecondThreeColors] = useState();
 
@@ -87,7 +88,7 @@ const ColorButton = () => {
         color={colorData.bgColor}
         zIndex={colorData.zIndex}
       >
-        <StyledLink to={`/home/color-detail/${colorData.name}`}>
+        <StyledLink to={`/home/${userid}/color-detail/${colorData.name}`}>
           <ColorTitle color={colorData.textColor}>
             {colorData.name.toUpperCase()}
           </ColorTitle>
@@ -102,7 +103,7 @@ const ColorButton = () => {
         color={colorData.bgColor}
         zIndex={colorData.zIndex}
       >
-        <StyledLink to={`/home/color-detail/${colorData.name}`}>
+        <StyledLink to={`/home/${userid}/color-detail/${colorData.name}`}>
           <ColorTitle color={colorData.textColor}>
             {colorData.name.toUpperCase()}
           </ColorTitle>
