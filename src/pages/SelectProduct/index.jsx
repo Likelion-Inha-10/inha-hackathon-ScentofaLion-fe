@@ -1,16 +1,16 @@
 import React from 'react';
 import Header from 'components/Header';
 import NavigationBar from 'components/NavigationBar';
-import ColorBasic from 'components/SubBasic';
+import ProductStandard from 'components/subStandard/product/ProductStandard';
 
-const SelectColorBasic = () => {
+const SelectProduct = () => {
   return (
     <div>
       <Header title="Subscribe" />
-      <ColorBasic />
+      <ProductStandard />
       <NavigationBar />
     </div>
   );
 };
 
-export default SelectColorBasic;
+export default SelectProduct;
