@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/Header';
 import { Link, useParams } from 'react-router-dom';
+import CandleImg from '../../../images/NextMain/blue_candle.png';
+import RoomImg from '../../../images/NextMain/blue_roomspray.png';
+import ShampooImg from '../../../images/NextMain/blue_shampoo.png';
 
 const WhiteBox = styled.div`
   width: 90%;
