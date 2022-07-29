@@ -42,10 +42,11 @@ const BoxText = styled.div`
   font-size: 17px;
   text-align: left;
   word-break: keep-all;
-  font-weight: 100;
-  line-height: 19px;
+  font-weight: ${(props) => props.fontWeight || 100};
+  line-height: 1.4;
   padding-bottom: 10px;
 `;
+
 const EBoxText = styled.div`
   width: 70%;
   font-size: 25px;
@@ -65,20 +66,18 @@ const WhiteBox = styled.div`
   display: flex;
   margin-top: 31px;
   margin-left: 10%;
-  flex-direction: left;
 
   position: absolute;
 `;
 
 const BlackBox = styled.div`
-  width: 50%;
+  width: 212px;
   height: 410px;
   background-color: black;
   border-radius: 40px;
   display: flex;
   margin-top: 31px;
   margin-left: 40%;
-  flex-direction: right;
   position: absolute;
 `;
 
@@ -137,7 +136,7 @@ const ReviewLoading = () => {
           radius="40"
           onclick={moveToSampleChangePage}
         >
-          <EBoxText>New</EBoxText>
+          <EBoxText>Sample Change</EBoxText>
           <BoxText>다음주, 다른 카테고리의 제품을 받아보고 싶으신가요?</BoxText>
           <BoxText fontWeight="900">샘플 변경하러 가기</BoxText>
         </Button>
