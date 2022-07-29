@@ -133,7 +133,7 @@ const ProductStandard = () => {
       let price = subprice === '5900' ? 5900 : 9900;
 
       axios
-        .patch(`https://moodpalette.b-cdn.net/account/${userid}/`, {
+        .patch(`/account/${userid}/`, {
           user_color,
         })
         .then((response) => {

@@ -94,7 +94,7 @@ const ColorProduct = () => {
 
   useEffect(() => {
     axios
-      .get(`https://moodpalette.b-cdn.net/product/${color}/`)
+      .get(`/product/${color}/`)
       .then((response) => {
         console.log(response);
         productArray = response.data;

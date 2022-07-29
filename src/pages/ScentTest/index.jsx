@@ -57,7 +57,7 @@ const ScentTest = (state) => {
 
   useEffect(() => {
     axios
-      .get(`https://moodpalette.b-cdn.net/account/${userid}/`)
+      .get(`/account/${userid}/`)
       .then((response) => {
         console.log(response);
         setUserColor(response.data.user_color);
