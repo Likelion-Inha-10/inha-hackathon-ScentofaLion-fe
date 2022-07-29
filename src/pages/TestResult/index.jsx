@@ -13,7 +13,7 @@ const TestResult = () => {
   useEffect(() => {
     console.log(color);
     axios
-      .patch(`http://172.104.110.207:8000/account/${userid}/`, {
+      .patch(`https://moodpalette.b-cdn.net/account/${userid}/`, {
         user_color: color,
       })
       .then((response) => {

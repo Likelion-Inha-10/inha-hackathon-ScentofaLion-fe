@@ -112,7 +112,10 @@ const Login = () => {
       return Alert('모든 항목을 입력해주세요');
     } else {
       axios
-        .post(`http://172.104.110.207:8000/account/login/`, { email, password })
+        .post(`https://moodpalette.b-cdn.net/account/login/`, {
+          email,
+          password,
+        })
         .then((response) => {
           console.log(response);
           navigate(`/home/${response.data.id}`);

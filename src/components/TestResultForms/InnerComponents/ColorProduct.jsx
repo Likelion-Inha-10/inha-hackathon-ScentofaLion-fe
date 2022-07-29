@@ -94,7 +94,7 @@ const ColorProduct = () => {
 
   useEffect(() => {
     axios
-      .get(`http://172.104.110.207:8000/product/${color}/`)
+      .get(`https://moodpalette.b-cdn.net/product/${color}/`)
       .then((response) => {
         console.log(response);
         productArray = response.data;
@@ -105,7 +105,8 @@ const ColorProduct = () => {
               <ImageContainer>
                 <ImageBox
                   src={
-                    'http://172.104.110.207:8000' + productArray[6].product_img
+                    'https://moodpalette.b-cdn.net/' +
+                    productArray[6].product_img
                   }
                 />
               </ImageContainer>
@@ -118,7 +119,8 @@ const ColorProduct = () => {
               <ImageContainer>
                 <ImageBox
                   src={
-                    'http://172.104.110.207:8000' + productArray[0].product_img
+                    'https://moodpalette.b-cdn.net/' +
+                    productArray[0].product_img
                   }
                 />
               </ImageContainer>
@@ -131,7 +133,8 @@ const ColorProduct = () => {
               <ImageContainer>
                 <ImageBox
                   src={
-                    'http://172.104.110.207:8000' + productArray[8].product_img
+                    'https://moodpalette.b-cdn.net/' +
+                    productArray[8].product_img
                   }
                 />
               </ImageContainer>

@@ -82,7 +82,7 @@ const SignUp = () => {
         nickname,
       });
       axios
-        .post(`http://172.104.110.207:8000/account/signup/`, {
+        .post(`https://moodpalette.b-cdn.net//account/signup/`, {
           email,
           password1,
           password2,
