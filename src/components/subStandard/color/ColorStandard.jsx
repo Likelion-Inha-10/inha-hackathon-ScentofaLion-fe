@@ -85,7 +85,7 @@ const ColorStandard = () => {
         let price = 3900;
         let user_color = userColor;
         axios
-          .patch(`https://moodpalette.b-cdn.net/account/${userid}/`, {
+          .patch(`/account/${userid}/`, {
             user_color,
           })
           .then((response) => {
