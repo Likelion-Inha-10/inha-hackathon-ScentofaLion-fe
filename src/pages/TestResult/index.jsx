@@ -13,7 +13,7 @@ const TestResult = () => {
   useEffect(() => {
     console.log(color);
     axios
-      .patch(`/account/${userid}/`, {
+      .patch(`http://172.104.110.207:8000/account/${userid}/`, {
         user_color: color,
       })
       .then((response) => {

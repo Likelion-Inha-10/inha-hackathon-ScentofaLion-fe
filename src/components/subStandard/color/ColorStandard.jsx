@@ -85,7 +85,7 @@ const ColorStandard = () => {
         let price = 3900;
         let user_color = userColor;
         axios
-          .patch(`/account/${userid}/`, {
+          .patch(`http://172.104.110.207:8000/account/${userid}/`, {
             user_color,
           })
           .then((response) => {
@@ -94,9 +94,8 @@ const ColorStandard = () => {
           .catch((error) => {
             console.log(error);
           });
-
         axios
-          .post(`https://moodpalette.b-cdn.net/sub/${userid}/`, {
+          .post(`http://172.104.110.207:8000/sub/${userid}/`, {
             price,
             diffuser,
             handwash,

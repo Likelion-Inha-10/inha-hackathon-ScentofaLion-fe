@@ -101,7 +101,7 @@ const ProductInfo = (props) => {
   console.log(props);
   useEffect(() => {
     axios
-      .get(`/product/${props.color}/`)
+      .get(`http://172.104.110.207:8000/product/${props.color}/`)
       .then((response) => {
         console.log(response);
         productArray = response.data;
@@ -112,8 +112,7 @@ const ProductInfo = (props) => {
               <ImageContainer>
                 <ImageBox
                   src={
-                    'https://moodpalette.b-cdn.net/' +
-                    productArray[6].product_img
+                    'http://172.104.110.207:8000' + productArray[6].product_img
                   }
                 />
               </ImageContainer>
@@ -124,8 +123,7 @@ const ProductInfo = (props) => {
               <ImageContainer>
                 <ImageBox
                   src={
-                    'https://moodpalette.b-cdn.net/' +
-                    productArray[0].product_img
+                    'http://172.104.110.207:8000' + productArray[0].product_img
                   }
                 />
               </ImageContainer>
@@ -136,8 +134,7 @@ const ProductInfo = (props) => {
               <ImageContainer>
                 <ImageBox
                   src={
-                    'https://moodpalette.b-cdn.net/' +
-                    productArray[8].product_img
+                    'http://172.104.110.207:8000' + productArray[8].product_img
                   }
                 />
               </ImageContainer>
@@ -148,8 +145,7 @@ const ProductInfo = (props) => {
               <ImageContainer>
                 <ImageBox
                   src={
-                    'https://moodpalette.b-cdn.net/' +
-                    productArray[10].product_img
+                    'http://172.104.110.207:8000' + productArray[10].product_img
                   }
                 />
               </ImageContainer>

@@ -133,7 +133,7 @@ const ProductStandard = () => {
       let price = subprice === '5900' ? 5900 : 9900;
 
       axios
-        .patch(`/account/${userid}/`, {
+        .patch(`http://172.104.110.207:8000/account/${userid}/`, {
           user_color,
         })
         .then((response) => {
@@ -144,7 +144,7 @@ const ProductStandard = () => {
         });
 
       axios
-        .post(`https://moodpalette.b-cdn.net/sub/${userid}/`, {
+        .post(`http://172.104.110.207:8000/sub/${userid}/`, {
           price,
           diffuser,
           handwash,
