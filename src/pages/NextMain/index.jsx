@@ -99,7 +99,7 @@ function NextMain() {
 
   useEffect(() => {
     axios
-      .get(`/account/${userid}/`)
+      .get(`http://172.104.110.207:8000/account/${userid}/`)
       .then((response) => {
         console.log(response);
         setUserColor(response.data.user_color);

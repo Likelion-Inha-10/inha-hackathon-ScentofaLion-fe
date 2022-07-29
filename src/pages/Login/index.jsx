@@ -112,7 +112,7 @@ const Login = () => {
       return Alert('모든 항목을 입력해주세요');
     } else {
       axios
-        .post(`/account/login/`, {
+        .post(`http://172.104.110.207:8000/account/login/`, {
           email,
           password,
         })

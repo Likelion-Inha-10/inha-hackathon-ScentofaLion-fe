@@ -82,7 +82,7 @@ const SignUp = () => {
         nickname,
       });
       axios
-        .post(`/account/signup/`, {
+        .post(`http://172.104.110.207:8000/account/signup/`, {
           email,
           password1,
           password2,

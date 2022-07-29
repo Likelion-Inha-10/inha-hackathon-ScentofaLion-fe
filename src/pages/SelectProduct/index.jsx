@@ -13,7 +13,7 @@ const SelectProduct = () => {
 
   useEffect(() => {
     axios
-      .get(`https://moodpalette.b-cdn.net/account/${userid}/`)
+      .get(`http://172.104.110.207:8000/account/${userid}/`)
       .then((response) => {
         console.log(response);
         setUserColor(response.data.user_color);
