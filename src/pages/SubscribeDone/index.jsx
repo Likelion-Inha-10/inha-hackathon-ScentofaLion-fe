@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import Header from 'components/Header';
 import NavigationBar from 'components/NavigationBar';
+import { useParams } from 'react-router-dom';
 
 const TextBox = styled.div`
   font-size: 20px;
@@ -28,6 +30,21 @@ const InfoTitleBorder = styled.div`
 `;
 
 const SubscribeDone = () => {
+  const { userid } = useParams();
+  const [userColor, setUserColor] = useState();
+
+  useEffect(() => {
+    axios
+      .get(`http://172.104.110.207:8000/account/${userid}/`)
+      .then((response) => {
+        console.log(response);
+        setUserColor(response.data.user_color);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <div>
       <Header title="Subscribe" />
@@ -37,7 +54,7 @@ const SubscribeDone = () => {
       </Wrapper>
 
       <TextBox>✧ 구독해주셔서 감사합니다 ✧</TextBox>
-      <NavigationBar />
+      <NavigationBar userid={userid} color={userColor} />
     </div>
   );
 };
