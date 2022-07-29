@@ -56,7 +56,7 @@ const Router = () => (
         <Route path="/home/:userid/next-main" element={<NextMain />} />
         <Route path="/home/product-detail" element={<ProductDetail />} />
         <Route path="/home/login-warning" element={<LoginWarning />} />
-        <Route path="/home/my-page/:color/:subscribe" element={<MyPage />} />
+        <Route path="/home/:userid/my-page" element={<MyPage />} />
         <Route path="/home/subscribe" element={<Subscribe />} />
         <Route path="/home/subscribe/done" element={<SubscribeDone />} />
 

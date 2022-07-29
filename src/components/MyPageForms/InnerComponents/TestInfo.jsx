@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components';
 import { reset } from '../../../redux/actions';
 import { connect } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from 'components/Button';
 import { MdArrowForwardIos } from 'react-icons/md';
 
@@ -93,18 +94,22 @@ const mapDispatchToProps = (dispatch) => {
 
 const TestInfo = (store) => {
   let navigate = useNavigate();
-  let test = 1;
-  const { color } = useParams('color');
 
   const moveToTestPage = () => {
     store.onClickReset();
     console.log('click');
-    navigate('/home/scent-test');
+    navigate(`/home/${store.userid}/scent-test`);
+  };
+
+  const moveToTestResultPage = () => {
+    store.onClickReset();
+    console.log('click');
+    navigate(`/home/${store.userid}/scent-test/result/${store.color}`);
   };
 
   return (
     <>
-      <Wrapper visible={test === 0}>
+      <Wrapper visible={store.color === ''}>
         <Container>
           <Button
             backgroundColor="white"
@@ -130,7 +135,7 @@ const TestInfo = (store) => {
         </Container>
       </Wrapper>
 
-      <Wrapper visible={test === 1}>
+      <Wrapper visible={store.color !== ''}>
         <Container>
           <Button
             backgroundColor="white"
@@ -139,6 +144,7 @@ const TestInfo = (store) => {
             paddingTop="15"
             paddingBottom="15"
             fontSize="17"
+            onClick={moveToTestResultPage}
           >
             <ButtonInnerWrapper>
               <TextWrapper>
@@ -148,7 +154,7 @@ const TestInfo = (store) => {
             </ButtonInnerWrapper>
           </Button>
 
-          <InfoWrapper visible={color === 'red'}>
+          <InfoWrapper visible={store.color === 'red'}>
             <InfoTextContainer>
               <ColorDetail>
                 사랑스러운 당신은 달콤한 매력을 잔뜩 머금고 있어요. 당신은
@@ -160,7 +166,7 @@ const TestInfo = (store) => {
             </InfoTextContainer>
           </InfoWrapper>
 
-          <InfoWrapper visible={color === 'yellow'}>
+          <InfoWrapper visible={store.color === 'yellow'}>
             <InfoTextContainer>
               <ColorDetail>
                 에너지가 넘치는 당신, 당신의 긍정적 에너지는 태양 빛처럼
@@ -173,7 +179,7 @@ const TestInfo = (store) => {
             </InfoTextContainer>
           </InfoWrapper>
 
-          <InfoWrapper visible={color === 'green'}>
+          <InfoWrapper visible={store.color === 'green'}>
             <InfoTextContainer>
               <ColorDetail>
                 자연의 산뜻함을 품은 당신, 당신은 활력과 성장 능력이 뛰어난
@@ -185,7 +191,7 @@ const TestInfo = (store) => {
             </InfoTextContainer>
           </InfoWrapper>
 
-          <InfoWrapper visible={color === 'blue'}>
+          <InfoWrapper visible={store.color === 'blue'}>
             <InfoTextContainer>
               <ColorDetail>
                 물과 바람 그리고 얼음. 당신 곁엔 늘 여름 하늘의 상쾌함이 맴도는
@@ -197,7 +203,7 @@ const TestInfo = (store) => {
             </InfoTextContainer>
           </InfoWrapper>
 
-          <InfoWrapper visible={color === 'black'}>
+          <InfoWrapper visible={store.color === 'black'}>
             <InfoTextContainer>
               <ColorDetail>
                 모던하고 힘있는 스타일의 당신, 당신의 당찬 메시지는 주변인에게
@@ -210,7 +216,7 @@ const TestInfo = (store) => {
             </InfoTextContainer>
           </InfoWrapper>
 
-          <InfoWrapper visible={color === 'white'}>
+          <InfoWrapper visible={store.color === 'white'}>
             <InfoTextContainer>
               <ColorDetail>
                 새하얀 구름과 깨끗한 이불같은 당신, 당신은 누구보다 부드럽고
@@ -223,7 +229,7 @@ const TestInfo = (store) => {
             </InfoTextContainer>
           </InfoWrapper>
 
-          <InfoWrapper visible={color === 'purple'}>
+          <InfoWrapper visible={store.color === 'purple'}>
             <InfoTextContainer>
               <ColorDetail>
                 해질녘 보랏빛 하늘을 품은 당신, 당신은 바라보고 있으면 마음이

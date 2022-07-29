@@ -1,6 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
 import Button from 'components/Button';
 import { MdArrowForwardIos } from 'react-icons/md';
 
@@ -81,12 +81,17 @@ const ButtonSubText = styled.div`
   color: black;
 `;
 
-const SubscribeInfo = () => {
-  const { subscribe } = useParams('subscribe');
+const SubscribeInfo = (props) => {
+  let subscribeTitle =
+    props.subPrice === '3900'
+      ? 'basic'
+      : props.subPrice === '5900'
+      ? 'standard'
+      : 'premium';
 
   return (
     <>
-      <Wrapper visible={subscribe === 'none'}>
+      <Wrapper visible={props.subPrice === null}>
         <ContainerTitle>구독 상세 정보</ContainerTitle>
         <Container>
           <SubscribeDate>아직 구독을 하지 않았어요.</SubscribeDate>
@@ -108,7 +113,7 @@ const SubscribeInfo = () => {
         </Container>
       </Wrapper>
 
-      <Wrapper visible={subscribe !== 'none'}>
+      <Wrapper visible={props.subPrice !== null}>
         <ContainerTitle>구독 상세 정보</ContainerTitle>
         <Container>
           <SubscribeDate>구독 시작일 : XXXX.XX.XX</SubscribeDate>
@@ -123,7 +128,7 @@ const SubscribeInfo = () => {
             <ButtonInnerWrapper>
               <TextWrapper>
                 <ButtonMainText>멤버십</ButtonMainText>
-                <ButtonSubText>{subscribe}</ButtonSubText>
+                <ButtonSubText>{subscribeTitle}</ButtonSubText>
               </TextWrapper>
               <MdArrowForwardIos />
             </ButtonInnerWrapper>

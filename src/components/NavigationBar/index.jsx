@@ -89,6 +89,14 @@ const NavigationBar = (store) => {
     }
   };
 
+  const moveToMyPage = () => {
+    if (store.userid === '0') {
+      return Alert('로그인을 먼저 해주세요.');
+    } else {
+      navigate(`/home/${store.userid}/my-page`);
+    }
+  };
+
   return (
     <Wrapper>
       <NavigationBox>
@@ -109,7 +117,11 @@ const NavigationBar = (store) => {
           <MdOutlineScience size="28px" color="white" />
         </NavigationButton>
         <NavigationButton type="button" value="myPage">
-          <MdOutlineEmojiEmotions size="28px" color="white" />
+          <MdOutlineEmojiEmotions
+            size="28px"
+            color="white"
+            onClick={moveToMyPage}
+          />
         </NavigationButton>
       </NavigationBox>
     </Wrapper>

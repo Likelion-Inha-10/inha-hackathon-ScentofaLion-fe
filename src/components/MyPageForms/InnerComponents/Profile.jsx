@@ -1,6 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -106,87 +106,85 @@ const ColorText = styled.div`
   margin-top: 5px;
 `;
 
-const Profile = () => {
-  const { color } = useParams('color');
-
+const Profile = (props) => {
   return (
     <>
-      <Wrapper visible={color === 'none'}>
+      <Wrapper visible={props.color === ''}>
         <Container>
           <ProfileColorUnknown />
           <TextWrapper>
-            <ProfileTitle>Moody님의 향기</ProfileTitle>
+            <ProfileTitle>{props.nickname}님의 향기</ProfileTitle>
             <ColorText color={'black'}>UNKNOWN</ColorText>
           </TextWrapper>
         </Container>
       </Wrapper>
 
-      <Wrapper visible={color === 'red'}>
+      <Wrapper visible={props.color === 'red'}>
         <Container>
           <ProfileColorRed />
           <TextWrapper>
-            <ProfileTitle>Moody님의 향기</ProfileTitle>
-            <ColorText color={'#F0213B'}>{color.toUpperCase()}</ColorText>
+            <ProfileTitle>{props.nickname}님의 향기</ProfileTitle>
+            <ColorText color={'#F0213B'}>{props.color}</ColorText>
           </TextWrapper>
         </Container>
       </Wrapper>
 
-      <Wrapper visible={color === 'yellow'}>
+      <Wrapper visible={props.color === 'yellow'}>
         <Container>
           <ProfileColorYellow />
           <TextWrapper>
-            <ProfileTitle>Moody님의 향기</ProfileTitle>
-            <ColorText color={'#FFD700'}>{color.toUpperCase()}</ColorText>
+            <ProfileTitle>{props.nickname}님의 향기</ProfileTitle>
+            <ColorText color={'#FFD700'}>{props.color}</ColorText>
           </TextWrapper>
         </Container>
       </Wrapper>
 
-      <Wrapper visible={color === 'green'}>
+      <Wrapper visible={props.color === 'green'}>
         <Container>
           <ProfileColorGreen />
           <TextWrapper>
-            <ProfileTitle>Moody님의 향기</ProfileTitle>
-            <ColorText color={'#339A53'}>{color.toUpperCase()}</ColorText>
+            <ProfileTitle>{props.nickname}님의 향기</ProfileTitle>
+            <ColorText color={'#339A53'}>{props.color}</ColorText>
           </TextWrapper>
         </Container>
       </Wrapper>
 
-      <Wrapper visible={color === 'blue'}>
+      <Wrapper visible={props.color === 'blue'}>
         <Container>
           <ProfileColorBlue />
           <TextWrapper>
-            <ProfileTitle>Moody님의 향기</ProfileTitle>
-            <ColorText color={'#2878a2'}>{color.toUpperCase()}</ColorText>
+            <ProfileTitle>{props.nickname}님의 향기</ProfileTitle>
+            <ColorText color={'#2878a2'}>{props.color}</ColorText>
           </TextWrapper>
         </Container>
       </Wrapper>
 
-      <Wrapper visible={color === 'black'}>
+      <Wrapper visible={props.color === 'black'}>
         <Container>
           <ProfileColorBlack />
           <TextWrapper>
-            <ProfileTitle>Moody님의 향기</ProfileTitle>
-            <ColorText color={'black'}>{color.toUpperCase()}</ColorText>
+            <ProfileTitle>{props.nickname}님의 향기</ProfileTitle>
+            <ColorText color={'black'}>{props.color}</ColorText>
           </TextWrapper>
         </Container>
       </Wrapper>
 
-      <Wrapper visible={color === 'white'}>
+      <Wrapper visible={props.color === 'white'}>
         <Container>
           <ProfileColorWhite />
           <TextWrapper>
-            <ProfileTitle>Moody님의 향기</ProfileTitle>
-            <ColorText color={'#828282'}>{color.toUpperCase()}</ColorText>
+            <ProfileTitle>{props.nickname}님의 향기</ProfileTitle>
+            <ColorText color={'#828282'}>{props.color}</ColorText>
           </TextWrapper>
         </Container>
       </Wrapper>
 
-      <Wrapper visible={color === 'purple'}>
+      <Wrapper visible={props.color === 'purple'}>
         <Container>
           <ProfileColorPurple />
           <TextWrapper>
-            <ProfileTitle>Moody님의 향기</ProfileTitle>
-            <ColorText color={'#7B78B8'}>{color.toUpperCase()}</ColorText>
+            <ProfileTitle>{props.nickname}님의 향기</ProfileTitle>
+            <ColorText color={'#7B78B8'}>{props.color}</ColorText>
           </TextWrapper>
         </Container>
       </Wrapper>
