@@ -16,6 +16,7 @@ const WhiteBox = styled.div`
   margin-left: 5%;
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
   flex-direction: column;
+
   position: absolute;
 `;
 
@@ -45,28 +46,18 @@ const LineName = styled.div`
   font-weight: 800;
   color: #595959;
   margin-bottom: 13px;
-`;
-const BrandName = styled.div`
-  font-size: 12px;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 800;
-  color: #595959;
-  margin-bottom: 13px;
+  margin-top: 7px;
 `;
 
 const ProductName = styled.div`
   font-size: 15px;
+  width: 75%;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
   color: black;
-  margin-bottom: 6px;
-`;
-
-const ProductName2 = styled.div`
-  font-size: 13px;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 800;
-  color: black;
+  margin-top: 6%;
+  word-break: keep-all;
+  line-height: 1.2;
 `;
 
 const MoveBox = styled.div`
@@ -87,24 +78,22 @@ const MoveBox = styled.div`
 const ProductWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 90%;
   height: 40px;
   margin-bottom: 120px;
-  margin-left: 10%;
-  align-items: flex-start;
+  margin-left: 15%;
 `;
 const TextBox = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 70%;
   height: 40px;
   margin-left: 10%;
 `;
 
 const ImgBox = styled.div`
-  display: flex;
-  width: 100px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
 `;
 
 const Image = styled.img`
@@ -127,40 +116,37 @@ const NProduct4 = () => {
 
         <ProductWrapper>
           <ImgBox>
-            <Image src={MistImg}></Image>
+            <Image></Image>
           </ImgBox>
 
           <TextBox>
             <LineName>바디미스트</LineName>
-            <BrandName>썸블라썸</BrandName>
-            <ProductName>시카케어 바디미스트</ProductName>
-            <ProductName2>시카케어</ProductName2>
+
+            <ProductName>썸블라썸 시카케어 바디미스트</ProductName>
           </TextBox>
         </ProductWrapper>
 
         <ProductWrapper>
           <ImgBox>
-            <Image src={FabricImg}></Image>
+            <Image></Image>
           </ImgBox>
 
           <TextBox>
             <LineName>섬유유연제</LineName>
-            <BrandName>버넬</BrandName>
-            <ProductName>버넬 섬유유연제</ProductName>
-            <ProductName2>프레쉬 모닝</ProductName2>
+
+            <ProductName>버넬 섬유유연제 프레쉬 모닝</ProductName>
           </TextBox>
         </ProductWrapper>
 
         <ProductWrapper>
           <ImgBox>
-            <Image src={PerfumeImg}></Image>
+            <Image></Image>
           </ImgBox>
 
           <TextBox>
             <LineName>향수</LineName>
-            <BrandName>베르사체</BrandName>
-            <ProductName>에로스 맨 오 드 뚜왈렛</ProductName>
-            <ProductName2>에로스</ProductName2>
+
+            <ProductName>베르사체 에로스 맨 오 드 뚜왈렛</ProductName>
           </TextBox>
         </ProductWrapper>
       </WhiteBox>

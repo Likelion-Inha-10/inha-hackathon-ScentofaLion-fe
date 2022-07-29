@@ -46,28 +46,18 @@ const LineName = styled.div`
   font-weight: 800;
   color: #595959;
   margin-bottom: 13px;
-`;
-const BrandName = styled.div`
-  font-size: 12px;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 800;
-  color: #595959;
-  margin-bottom: 13px;
+  margin-top: 7px;
 `;
 
 const ProductName = styled.div`
   font-size: 15px;
+  width: 75%;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
   color: black;
-  margin-bottom: 6px;
-`;
-
-const ProductName2 = styled.div`
-  font-size: 13px;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 800;
-  color: black;
+  margin-top: 6%;
+  word-break: keep-all;
+  line-height: 1.2;
 `;
 
 const MoveBox = styled.div`
@@ -88,24 +78,22 @@ const MoveBox = styled.div`
 const ProductWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 90%;
   height: 40px;
   margin-bottom: 120px;
-  margin-left: 10%;
-  align-items: flex-start;
+  margin-left: 15%;
 `;
 const TextBox = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 70%;
   height: 40px;
   margin-left: 10%;
 `;
 
 const ImgBox = styled.div`
-  display: flex;
-  width: 100px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
 `;
 
 const Image = styled.img`
@@ -128,40 +116,38 @@ const NProduct1 = () => {
 
         <ProductWrapper>
           <ImgBox>
-            <Image src={DiffuserImg}></Image>
+            <Image></Image>
           </ImgBox>
 
           <TextBox>
-            <LineName>디퓨저</LineName>
-            <BrandName>쿤달</BrandName>
-            <ProductName>센트오브제주 퍼퓸 디퓨저</ProductName>
-            <ProductName2>센트오브제주</ProductName2>
+            <LineName>디퓨저 Diffuser</LineName>
+
+            <ProductName> 쿤달 센트오브제주 퍼퓸 디퓨저</ProductName>
           </TextBox>
         </ProductWrapper>
 
         <ProductWrapper>
           <ImgBox>
-            <Image src={WashImg}></Image>
+            <Image></Image>
           </ImgBox>
 
           <TextBox>
-            <LineName>핸드워시</LineName>
-            <BrandName>탐사</BrandName>
+            <LineName>핸드워시 Hand Wash</LineName>
+
             <ProductName>탐사 오션블루향 핸드워시</ProductName>
-            <ProductName2>오션블루</ProductName2>
           </TextBox>
         </ProductWrapper>
 
         <ProductWrapper>
           <ImgBox>
-            <Image src={CreamImg}></Image>
+            <Image></Image>
           </ImgBox>
 
           <TextBox>
-            <LineName>핸드크림</LineName>
-            <BrandName>AHAVA</BrandName>
-            <ProductName>오리지널 사해 미네랄 핸드크림</ProductName>
-            <ProductName2>바다 키스</ProductName2>
+            <LineName>핸드크림 Hand Cream</LineName>
+            <ProductName>
+              AHAVA 오리지널 사해 미네랄 핸드크림 바다 키스
+            </ProductName>
           </TextBox>
         </ProductWrapper>
       </WhiteBox>
