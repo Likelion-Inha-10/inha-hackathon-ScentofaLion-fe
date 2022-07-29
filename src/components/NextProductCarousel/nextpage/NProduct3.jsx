@@ -2,9 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/Header';
 import { Link, useParams } from 'react-router-dom';
-import ConditionerImg from '../../../images/NextMain/conditioner_Blue.png';
-import LotionImg from '../../../images/NextMain/body lotion_Blue.png';
-import BodyWashImg from '../../../images/NextMain/ body wash_blue.png';
+
 const WhiteBox = styled.div`
   width: 90%;
   height: 600px;
@@ -15,6 +13,7 @@ const WhiteBox = styled.div`
   margin-left: 5%;
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
   flex-direction: column;
+
   position: absolute;
 `;
 
@@ -44,28 +43,18 @@ const LineName = styled.div`
   font-weight: 800;
   color: #595959;
   margin-bottom: 13px;
-`;
-const BrandName = styled.div`
-  font-size: 12px;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 800;
-  color: #595959;
-  margin-bottom: 13px;
+  margin-top: 7px;
 `;
 
 const ProductName = styled.div`
   font-size: 15px;
+  width: 75%;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
   color: black;
-  margin-bottom: 6px;
-`;
-
-const ProductName2 = styled.div`
-  font-size: 13px;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 800;
-  color: black;
+  margin-top: 6%;
+  word-break: keep-all;
+  line-height: 1.2;
 `;
 
 const MoveBox = styled.div`
@@ -86,24 +75,22 @@ const MoveBox = styled.div`
 const ProductWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 90%;
   height: 40px;
   margin-bottom: 120px;
-  margin-left: 10%;
-  align-items: flex-start;
+  margin-left: 15%;
 `;
 const TextBox = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 70%;
   height: 40px;
   margin-left: 10%;
 `;
 
 const ImgBox = styled.div`
-  display: flex;
-  width: 100px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
 `;
 
 const Image = styled.img`
@@ -126,40 +113,39 @@ const NProduct3 = () => {
 
         <ProductWrapper>
           <ImgBox>
-            <Image src={ConditionerImg}></Image>
+            <Image></Image>
           </ImgBox>
 
           <TextBox>
             <LineName>린스</LineName>
-            <BrandName>LOMA</BrandName>
-            <ProductName>리브 인 컨디셔너</ProductName>
-            <ProductName2>리브 인</ProductName2>
+
+            <ProductName>LOMA 리브 인 컨디셔너</ProductName>
           </TextBox>
         </ProductWrapper>
 
         <ProductWrapper>
           <ImgBox>
-            <Image src={BodyWashImg}></Image>
+            <Image></Image>
           </ImgBox>
 
           <TextBox>
             <LineName>바디워시</LineName>
-            <BrandName>아쿠아 디 파르마</BrandName>
-            <ProductName>미르토 디 파나레아 바디워시</ProductName>
-            <ProductName2>미르토 디 파나레아</ProductName2>
+
+            <ProductName>
+              아쿠아 디 파르마 미르토 디파나레아 바디워시
+            </ProductName>
           </TextBox>
         </ProductWrapper>
 
         <ProductWrapper>
           <ImgBox>
-            <Image src={LotionImg}></Image>
+            <Image></Image>
           </ImgBox>
 
           <TextBox>
             <LineName>바디로션</LineName>
-            <BrandName>줄라이미</BrandName>
-            <ProductName>퍼퓸 바디로션</ProductName>
-            <ProductName2>우디 앤 머스크</ProductName2>
+
+            <ProductName>줄라이미 퍼퓸 바디로션 우디 앤 머스크</ProductName>
           </TextBox>
         </ProductWrapper>
       </WhiteBox>
