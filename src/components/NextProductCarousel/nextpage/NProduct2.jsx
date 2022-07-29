@@ -2,9 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/Header';
 import { Link, useParams } from 'react-router-dom';
-import CandleImg from '../../../images/NextMain/Candle_Blue.png';
-import RoomImg from '../../../images/NextMain/Room_Blue.jpg';
-import ShampooImg from '../../../images/NextMain/shampoo_Blue.jpg';
 
 const WhiteBox = styled.div`
   width: 90%;
@@ -46,28 +43,18 @@ const LineName = styled.div`
   font-weight: 800;
   color: #595959;
   margin-bottom: 13px;
-`;
-const BrandName = styled.div`
-  font-size: 12px;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 800;
-  color: #595959;
-  margin-bottom: 13px;
+  margin-top: 7px;
 `;
 
 const ProductName = styled.div`
   font-size: 15px;
+  width: 75%;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
   color: black;
-  margin-bottom: 6px;
-`;
-
-const ProductName2 = styled.div`
-  font-size: 13px;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 800;
-  color: black;
+  margin-top: 6%;
+  word-break: keep-all;
+  line-height: 1.2;
 `;
 
 const MoveBox = styled.div`
@@ -88,24 +75,21 @@ const MoveBox = styled.div`
 const ProductWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 90%;
   height: 40px;
   margin-bottom: 120px;
-  margin-left: 10%;
-  align-items: flex-start;
+  margin-left: 15%;
 `;
 const TextBox = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 40px;
+  width: 70%;
   margin-left: 10%;
 `;
 
 const ImgBox = styled.div`
-  display: flex;
-  width: 100px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
 `;
 
 const Image = styled.img`
@@ -128,40 +112,36 @@ const NProduct2 = () => {
 
         <ProductWrapper>
           <ImgBox>
-            <Image src={CandleImg}></Image>
+            <Image></Image>
           </ImgBox>
 
           <TextBox>
             <LineName>캔들</LineName>
-            <BrandName>오량주</BrandName>
-            <ProductName>토스카나 캔들</ProductName>
-            <ProductName2>브아 몽마르뜨</ProductName2>
+
+            <ProductName>오량주 토스카나 캔들 브아 몽마르뜨</ProductName>
           </TextBox>
         </ProductWrapper>
 
         <ProductWrapper>
           <ImgBox>
-            <Image src={RoomImg}></Image>
+            <Image></Image>
           </ImgBox>
 
           <TextBox>
             <LineName>룸스프레이</LineName>
-            <BrandName>메르디센트</BrandName>
-            <ProductName>퍼퓸 룸 스프레이</ProductName>
-            <ProductName2>메리브리즈</ProductName2>
+            <ProductName> 메르디센트 퍼퓸 룸 스프레이 메리브리즈</ProductName>
           </TextBox>
         </ProductWrapper>
 
         <ProductWrapper>
           <ImgBox>
-            <Image src={ShampooImg}></Image>
+            <Image></Image>
           </ImgBox>
 
           <TextBox>
             <LineName>샴푸</LineName>
-            <BrandName>닥터그루트</BrandName>
-            <ProductName>애딕트 샴푸</ProductName>
-            <ProductName2>세이지 앤 씨솔트</ProductName2>
+
+            <ProductName>닥터그루트 애딕트 샴푸 세이지 앤 씨솔트</ProductName>
           </TextBox>
         </ProductWrapper>
       </WhiteBox>

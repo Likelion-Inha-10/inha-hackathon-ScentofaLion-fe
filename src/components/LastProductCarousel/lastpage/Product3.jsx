@@ -2,9 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/Header';
 import { Link, useParams } from 'react-router-dom';
-import ConditionerImg from '../../../images/LastMain/purple-conditioner.png';
-import BodyWashImg from '../../../images/LastMain/BodyWask_purple.png';
-import LotionImg from '../../../images/LastMain/BodyLotion_purple.png';
 
 const WhiteBox = styled.div`
   width: 90%;
@@ -46,28 +43,18 @@ const LineName = styled.div`
   font-weight: 800;
   color: #595959;
   margin-bottom: 13px;
-`;
-const BrandName = styled.div`
-  font-size: 12px;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 800;
-  color: #595959;
-  margin-bottom: 13px;
+  margin-top: 7px;
 `;
 
 const ProductName = styled.div`
   font-size: 15px;
+  width: 75%;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
   color: black;
-  margin-bottom: 6px;
-`;
-
-const ProductName2 = styled.div`
-  font-size: 13px;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 800;
-  color: black;
+  margin-top: 6%;
+  word-break: keep-all;
+  line-height: 1.2;
 `;
 
 const MoveBox = styled.div`
@@ -84,34 +71,32 @@ const MoveBox = styled.div`
   position: relative;
 `;
 //모든 요소 위에 투명도 100인 박스를 만들어서 메인으로 이동하게 만들었슴다,,,,죄송,,,
+
 const ProductWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 90%;
   height: 40px;
   margin-bottom: 120px;
-  margin-left: 10%;
-  align-items: flex-start;
+  margin-left: 15%;
 `;
 const TextBox = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 70%;
   height: 40px;
   margin-left: 10%;
 `;
 
 const ImgBox = styled.div`
-  display: flex;
-  width: 100px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
 `;
 
 const Image = styled.img`
   width: 100%;
   height: 100%;
 `;
-
 const Product3 = () => {
   const { userid } = useParams();
 
@@ -127,40 +112,39 @@ const Product3 = () => {
 
         <ProductWrapper>
           <ImgBox>
-            <Image src={ConditionerImg}></Image>
+            <Image></Image>
           </ImgBox>
 
           <TextBox>
             <LineName>린스</LineName>
-            <BrandName>비욘드</BrandName>
-            <ProductName>프로페셔널 디펜스 컨디셔너</ProductName>
-            <ProductName2>크렌베리, 블루베리</ProductName2>
+
+            <ProductName>
+              비욘드 프로페셔널 디펜스 컨디셔너 크렌베리
+            </ProductName>
           </TextBox>
         </ProductWrapper>
 
         <ProductWrapper>
           <ImgBox>
-            <Image src={BodyWashImg}></Image>
+            <Image></Image>
           </ImgBox>
 
           <TextBox>
             <LineName>바디워시</LineName>
-            <BrandName>록시땅</BrandName>
-            <ProductName>올가닉 샤워젤</ProductName>
-            <ProductName2>라벤더</ProductName2>
+
+            <ProductName>록시땅 올가닉 샤워젤 라벤더</ProductName>
           </TextBox>
         </ProductWrapper>
 
         <ProductWrapper>
           <ImgBox>
-            <Image src={LotionImg}></Image>
+            <Image></Image>
           </ImgBox>
 
           <TextBox>
             <LineName>로션</LineName>
-            <BrandName>멈칫</BrandName>
-            <ProductName>멜팅 바디로션</ProductName>
-            <ProductName2>퍼플머스크</ProductName2>
+
+            <ProductName>멈칫멜팅 바디로션 퍼플머스크</ProductName>
           </TextBox>
         </ProductWrapper>
       </WhiteBox>
