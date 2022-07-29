@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/Header';
 import { Link, useParams } from 'react-router-dom';
-import MistImg from '../../../images/LastMain/bodymistPurple.jpg';
-import FabricImg from '../../../images/LastMain/fabricpurple.png';
-import PerFumeImg from '../../../images/LastMain/perfumepurple.png';
+import MistImg from '../../../images/LastMain/purple_bodymist.png';
+import FabricImg from '../../../images/LastMain/purple_softner.png';
+import PerFumeImg from '../../../images/LastMain/purple_perfume.png';
 const WhiteBox = styled.div`
   width: 90%;
   height: 600px;

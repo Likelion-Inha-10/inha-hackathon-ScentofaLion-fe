@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from 'components/Header';
 import { Link, useParams } from 'react-router-dom';
-import ConditionerImg from '../../../images/LastMain/purple-conditioner.png';
-import BodyWashImg from '../../../images/LastMain/BodyWask_purple.png';
-import LotionImg from '../../../images/LastMain/BodyLotion_purple.png';
+import ConditionerImg from '../../../images/LastMain/purple_rinse.png';
+import BodyWashImg from '../../../images/LastMain/purple_bodywash.png';
+import LotionImg from '../../../images/LastMain/purple_bodylotion.png';
 
 const WhiteBox = styled.div`
   width: 90%;
@@ -72,7 +72,7 @@ const ProductName2 = styled.div`
 
 const MoveBox = styled.div`
   width: 90%;
-  height: 630px;
+  height: 600px;
   background-color: white;
   border-radius: 41px 0px 41px 41px;
   display: flex;
